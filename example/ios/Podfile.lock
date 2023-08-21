@@ -1,0 +1,35 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - Survicate (3.0.2)
+  - survicate_sdk (0.0.1):
+    - Flutter
+    - Survicate (= 3.0.2)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - survicate_sdk (from `.symlinks/plugins/survicate_sdk/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Survicate
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  survicate_sdk:
+    :path: ".symlinks/plugins/survicate_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  integration_test: 13825b8a9334a850581300559b8839134b124670
+  Survicate: 8cab9f81b525d4ffea5a86fb762bfde901128339
+  survicate_sdk: 20139153ab4e8357475d5df47aca327ea9b2bea3
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.12.0
