@@ -13,12 +13,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final SurvicateSdk _survicate = SurvicateSdk();
-
   @override
   void initState() {
     super.initState();
-    _survicate.initializeSdk();
+    SurvicateSdk.initializeSdk();
   }
 
   @override
@@ -35,37 +33,37 @@ class _MyAppState extends State<MyApp> {
             TextButton(
               child: const Text('Enter Screen: Home'),
               onPressed: () {
-                _survicate.enterScreen('Home');
+                SurvicateSdk.enterScreen('Home');
               },
             ),
             TextButton(
               child: const Text('Leave Screen: Home'),
               onPressed: () {
-                _survicate.leaveScreen('Home');
+                SurvicateSdk.leaveScreen('Home');
               },
             ),
             TextButton(
               child: const Text('Invoke Event: Event'),
               onPressed: () {
-                _survicate.invokeEvent('Event');
+                SurvicateSdk.invokeEvent('Event');
               },
             ),
             TextButton(
               child: const Text('Set User Trait'),
               onPressed: () {
-                _survicate.setUserTrait('Name', 'Jane Doe');
+                SurvicateSdk.setUserTrait('Name', 'Jane Doe');
               },
             ),
             TextButton(
               child: const Text('Set User Id'),
               onPressed: () {
-                _survicate.setUserId('1234567890');
+                SurvicateSdk.setUserId('1234567890');
               },
             ),
             TextButton(
               child: const Text('Reset'),
               onPressed: () {
-                _survicate.reset();
+                SurvicateSdk.reset();
               },
             ),
           ],

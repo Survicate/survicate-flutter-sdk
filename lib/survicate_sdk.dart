@@ -1,7 +1,10 @@
 import 'survicate_sdk_platform_interface.dart';
 
 class SurvicateSdk {
-  void setWorkspaceKey(String workspaceKey) async {
+  // Prevent instantiation of the class
+  SurvicateSdk._();
+
+  static void setWorkspaceKey(String workspaceKey) async {
     try {
       await SurvicateSdkPlatform.instance.setWorkspaceKey(workspaceKey);
     } catch (e) {
@@ -9,7 +12,7 @@ class SurvicateSdk {
     }
   }
 
-  void initializeSdk() async {
+  static void initializeSdk() async {
     try {
       await SurvicateSdkPlatform.instance.initializeSdk();
     } catch (e) {
@@ -17,7 +20,7 @@ class SurvicateSdk {
     }
   }
 
-  void invokeEvent(String eventName) async {
+  static void invokeEvent(String eventName) async {
     try {
       await SurvicateSdkPlatform.instance.invokeEvent(eventName);
     } catch (e) {
@@ -25,7 +28,7 @@ class SurvicateSdk {
     }
   }
 
-  void enterScreen(String screenName) async {
+  static void enterScreen(String screenName) async {
     try {
       await SurvicateSdkPlatform.instance.enterScreen(screenName);
     } catch (e) {
@@ -33,7 +36,7 @@ class SurvicateSdk {
     }
   }
 
-  void leaveScreen(String screenName) async {
+  static void leaveScreen(String screenName) async {
     try {
       await SurvicateSdkPlatform.instance.leaveScreen(screenName);
     } catch (e) {
@@ -41,7 +44,7 @@ class SurvicateSdk {
     }
   }
 
-  void setUserId(String userId) async {
+  static void setUserId(String userId) async {
     try {
       await SurvicateSdkPlatform.instance.setUserId(userId);
     } catch (e) {
@@ -49,7 +52,7 @@ class SurvicateSdk {
     }
   }
 
-  void setUserTrait(String key, String value) async {
+  static void setUserTrait(String key, String value) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTrait(key, value);
     } catch (e) {
@@ -57,7 +60,7 @@ class SurvicateSdk {
     }
   }
 
-  void reset() async {
+  static void reset() async {
     try {
       await SurvicateSdkPlatform.instance.reset();
     } catch (e) {
