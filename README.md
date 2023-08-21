@@ -63,12 +63,10 @@ Initialize the SDK in your application using `initializeSdk()` method. Call this
 import 'package:survicate_sdk/survicate_sdk.dart';
 
 class _MyAppState extends State<MyApp> {
-  final SurvicateSdk _survicate = SurvicateSdk();
-
   @override
   void initState() {
     super.initState();
-    _survicate.initializeSdk();
+    SurvicateSdk.initializeSdk();
   }
 }
 ```
@@ -96,9 +94,9 @@ _Note: Multiple active screens are allowed. In specific, calling enterScreen() d
 
 ```dart
 // ...
-_survicate.enterScreen("screenName");
+SurvicateSdk.enterScreen("screenName");
 // ...
-_survicate.leaveScreen("screenName");
+SurvicateSdk.leaveScreen("screenName");
 ```
 
 _Screen name is case sensitive. If there's any discrepancy between what's declared in the ‘Screens’ tab of the Target section in the Survicate panel and the application code, the survey will not appear._
@@ -108,7 +106,7 @@ _Screen name is case sensitive. If there's any discrepancy between what's declar
 Survicate Android SDK allows you to launch surveys based on events your users trigger in your app. Your survey will instantly after an event occurs in your app.
 
 ```dart
-_survicate.invokeEvent("eventName");
+SurvicateSdk.invokeEvent("eventName");
 ```
 
 _Event name is case sensitive. If there is any discrepancy between what's declared in the ‘Triggers’ tab of the Target section in the Survicate panel and the application code, the survey will not appear._
@@ -120,8 +118,8 @@ You can pass user attributes to Survicate as an additional layer of information 
 * filter your survey results
 
 ```dart
-_survicate.setUserId("screenName");
-_survicate.setUserTrait("traitName", "traitValue");
+SurvicateSdk.setUserId("screenName");
+SurvicateSdk.setUserTrait("traitName", "traitValue");
 ```
 
 _Bear in mind that user attributes are cached. You only need to provide them once, e.g. when user logs in, not after each `init()`. You can also change their values at any time to trigger a survey._
@@ -131,7 +129,7 @@ _Bear in mind that user attributes are cached. You only need to provide them onc
 If you need to test surveys on your device, `reset()` method might be helpful. This method will reset all user data stored on your device (survey views, attributes, information about answered surveys for the targeting engine).
 
 ```dart
-_survicate.reset();
+SurvicateSdk.reset();
 ```
 
 ---
