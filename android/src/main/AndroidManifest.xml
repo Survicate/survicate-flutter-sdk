@@ -1,3 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.survicate_sdk">
+  package="com.survicate.flutter">
 </manifest>

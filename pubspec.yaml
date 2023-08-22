@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.survicate_sdk
+        package: com.survicate.flutter
         pluginClass: SurvicateSdkPlugin
       ios:
         pluginClass: SurvicateSdkPlugin
