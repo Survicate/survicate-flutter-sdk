@@ -9,8 +9,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin {
     let invokeEvent = "invokeEvent"
     let enterScreen = "enterScreen"
     let leaveScreen = "leaveScreen"
-    let setUserId = "setUserId"
-    let userId = "user_id"
+    let setUserTraits = "setUserTraits"
     let setUserTrait = "setUserTrait"
     let reset = "reset"
     
@@ -41,14 +40,14 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin {
             let name = call.arguments as! String
             SurvicateSdk.shared.leaveScreen(value: name)
             result(nil)
-        case setUserId:
-            let value = call.arguments as! String
-            SurvicateSdk.shared.setUserTrait(withName: userId, value: value)
-            result(nil)
         case setUserTrait:
             let values = call.arguments as! Array<String>
             let userTrait = UserTrait(withName: values[0], value: values[1])
             SurvicateSdk.shared.setUserTrait(userTrait)
+            result(nil)
+        case setUserTraits:
+            let value = call.arguments as! [String: String]
+            SurvicateSdk.shared.setUserTraits(withNamesAndValues: value)
             result(nil)
         case reset:
             SurvicateSdk.shared.reset()

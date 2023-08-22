@@ -30,8 +30,8 @@ class SurvicateSdkPlugin: FlutterPlugin, MethodCallHandler {
       INVOKE_EVENT -> Survicate.invokeEvent(call.arguments!! as String)
       ENTER_SCREEN -> Survicate.enterScreen(call.arguments!! as String)
       LEAVE_SCREEN -> Survicate.leaveScreen(call.arguments!! as String)
-      SET_USER_ID -> setUserId(call.arguments!! as String)
       SET_USER_TRAIT -> setUserTrait(call.argument("key")!!, call.argument("value")!!)
+      SET_USER_TRAITS -> setUserTraits(call.arguments!! as Map<String, String>)
       RESET -> Survicate.reset()
       else -> throw NotImplementedError("Method ${call.method} is not implemented")
     }
@@ -41,14 +41,14 @@ class SurvicateSdkPlugin: FlutterPlugin, MethodCallHandler {
     channel.setMethodCallHandler(null)
   }
 
-  private fun setUserId(id: String) {
-    val userTrait = UserTrait.UserId(id)
-    Survicate.setUserTrait(userTrait)
-  }
-
   private fun setUserTrait(key: String, value: String) {
     val userTrait = UserTrait(key, value)
     Survicate.setUserTrait(userTrait)
+  }
+
+  private fun setUserTraits(values: Map<String, String>) {
+    val userTraits = values.map { UserTrait(it.key, it.value) }
+    Survicate.setUserTraits(userTraits)
   }
 
   private companion object {
@@ -57,8 +57,8 @@ class SurvicateSdkPlugin: FlutterPlugin, MethodCallHandler {
     const val INVOKE_EVENT = "invokeEvent"
     const val ENTER_SCREEN = "enterScreen"
     const val LEAVE_SCREEN = "leaveScreen"
-    const val SET_USER_ID = "setUserId"
     const val SET_USER_TRAIT = "setUserTrait"
+    const val SET_USER_TRAITS = "setUserTraits"
     const val RESET = "reset"
   }
 }

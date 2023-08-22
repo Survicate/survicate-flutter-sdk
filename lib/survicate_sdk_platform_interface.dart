@@ -43,12 +43,12 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
     throw UnimplementedError('leaveScreen() has not been implemented.');
   }
 
-  Future<void> setUserId(String userId) {
-    throw UnimplementedError('setUserId() has not been implemented.');
-  }
-
   Future<void> setUserTrait(String key, String value) {
     throw UnimplementedError('setUserTrait() has not been implemented.');
+  }
+
+  Future<void> setUserTraits(Map<String, String> traits) {
+    throw UnimplementedError('setUserTraits() has not been implemented.');
   }
 
   Future<void> reset() {

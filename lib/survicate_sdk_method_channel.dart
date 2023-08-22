@@ -35,13 +35,13 @@ class MethodChannelSurvicateSdk extends SurvicateSdkPlatform {
   }
 
   @override
-  Future<void> setUserId(String userId) async {
-    await methodChannel.invokeMethod('setUserId', userId);
+  Future<void> setUserTrait(String key, String value) async {
+    await methodChannel.invokeMethod('setUserTrait', [key, value]);
   }
 
   @override
-  Future<void> setUserTrait(String key, String value) async {
-    await methodChannel.invokeMethod('setUserTrait', [key, value]);
+  Future<void> setUserTraits(Map<String, String> traits) async {
+    await methodChannel.invokeMethod('setUserTraits', traits);
   }
 
   @override
