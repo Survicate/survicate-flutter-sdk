@@ -69,6 +69,7 @@ class SurvicateSdk {
     }
   }
 
+  /// Shorthand version of [setUserTraits].
   static void setUserTrait(String key, String value) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTrait(key, value);
@@ -77,6 +78,13 @@ class SurvicateSdk {
     }
   }
 
+  /// Through this method, clients can provide traits of the user.
+  /// These can be arbitrary key-value pairs. Traits are persisted, so the client only needs to
+  /// provide them once. Traits are sent to the system along with the user's answers to the survey. They
+  /// are also used for targeting (e.g., a client can choose to show the survey to just
+  /// users with `eyes_color=blue` in the Survicate Panel).
+  ///
+  /// To change a trait, clients need to send the same key with a different value.
   static void setUserTraits(Map<String, String> traits) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTraits(traits);
