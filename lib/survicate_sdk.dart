@@ -6,7 +6,7 @@ class SurvicateSdk {
 
   /// Sets workspace key to be used in SDK. Must be called before [initializeSdk] is called.
   ///
-  /// The [key] parameter represents the workspace key.
+  /// The [workspaceKey] parameter represents the workspace key.
   static void setWorkspaceKey(String workspaceKey) async {
     try {
       await SurvicateSdkPlatform.instance.setWorkspaceKey(workspaceKey);
@@ -69,7 +69,15 @@ class SurvicateSdk {
     }
   }
 
-  /// Shorthand version of [setUserTraits].
+  /// Sets a single trait for the user, identified by [key], with the provided [value].
+  /// These can be arbitrary key-value pairs. Traits are persisted, so the client
+  /// only needs to provide them once. Traits are sent to the system along
+  /// with the user's answers to the survey. They are also used for targeting (e.g., a client
+  /// can choose to show the survey to just users with `eyes_color=blue` in the Survicate Panel).
+  ///
+  /// To change a trait, clients need to send the same key with a different value.
+  /// See also:
+  ///  * [setUserTraits], the method used to set multiple traits at once.
   static void setUserTrait(String key, String value) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTrait(key, value);
@@ -78,13 +86,9 @@ class SurvicateSdk {
     }
   }
 
-  /// Through this method, clients can provide traits of the user.
-  /// These can be arbitrary key-value pairs. Traits are persisted, so the client only needs to
-  /// provide them once. Traits are sent to the system along with the user's answers to the survey. They
-  /// are also used for targeting (e.g., a client can choose to show the survey to just
-  /// users with `eyes_color=blue` in the Survicate Panel).
-  ///
-  /// To change a trait, clients need to send the same key with a different value.
+  /// Sets multiple user traits at once using the provided [traits] map.
+  /// See also:
+  ///  * [setUserTrait], the method used to set a single trait.
   static void setUserTraits(Map<String, String> traits) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTraits(traits);
