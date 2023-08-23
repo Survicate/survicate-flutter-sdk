@@ -55,9 +55,13 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             TextButton(
-              child: const Text('Set User Id'),
+              child: const Text('Set User Traits'),
               onPressed: () {
-                SurvicateSdk.setUserId('1234567890');
+                Map<String, String> traits = {
+                  'Name': 'Jane',
+                  'Color': 'Blue',
+                };
+                SurvicateSdk.setUserTraits(traits);
               },
             ),
             TextButton(

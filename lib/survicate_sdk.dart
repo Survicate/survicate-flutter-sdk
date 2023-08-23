@@ -44,17 +44,17 @@ class SurvicateSdk {
     }
   }
 
-  static void setUserId(String userId) async {
+  static void setUserTrait(String key, String value) async {
     try {
-      await SurvicateSdkPlatform.instance.setUserId(userId);
+      await SurvicateSdkPlatform.instance.setUserTrait(key, value);
     } catch (e) {
       // ignore
     }
   }
 
-  static void setUserTrait(String key, String value) async {
+  static void setUserTraits(Map<String, String> traits) async {
     try {
-      await SurvicateSdkPlatform.instance.setUserTrait(key, value);
+      await SurvicateSdkPlatform.instance.setUserTraits(traits);
     } catch (e) {
       // ignore
     }
