@@ -118,8 +118,13 @@ You can pass user attributes to Survicate as an additional layer of information 
 * filter your survey results
 
 ```dart
-SurvicateSdk.setUserId("screenName");
 SurvicateSdk.setUserTrait("traitName", "traitValue");
+
+Map<String, String> traits = {
+  'user_id': 'YourUserId',
+  'name': 'John',
+};
+SurvicateSdk.setUserTraits(traits);
 ```
 
 _Bear in mind that user attributes are cached. You only need to provide them once, e.g. when user logs in, not after each `init()`. You can also change their values at any time to trigger a survey._
