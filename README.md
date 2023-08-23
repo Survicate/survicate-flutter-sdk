@@ -2,9 +2,9 @@
 
 The Survicate Mobile SDK allows you to collect feedback from your mobile app users. Installed in your app, the SDK will enable you to trigger targeted surveys to better understand your users and collect their opinions about your products. 
 
-The SDK is maintained and supported by Survicate - The Customer Experience & Survey Software.
+The SDK is maintained and supported by [Survicate - The Customer Experience & Survey Software](https://survicate.com/software/mobile-app-surveys/).
 
-The detailed documentation is available [here](https://developers.survicate.com/mobile-sdk/). 
+The detailed documentation is available [here](https://developers.survicate.com/mobile-sdk/flutter). 
 
 ---
 
