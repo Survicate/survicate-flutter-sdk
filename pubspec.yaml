@@ -1,5 +1,5 @@
 name: survicate_sdk
-description: A new Flutter plugin project.
+description: Official plugin for Survicate SDK integration with Flutter.
 version: 0.0.1
 homepage:
 
@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.survicate_sdk
+        package: com.survicate.flutter
         pluginClass: SurvicateSdkPlugin
       ios:
         pluginClass: SurvicateSdkPlugin

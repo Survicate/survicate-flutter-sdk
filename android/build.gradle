@@ -1,4 +1,4 @@
-group 'com.example.survicate_sdk'
+group 'com.survicate.flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {

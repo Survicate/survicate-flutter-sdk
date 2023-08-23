@@ -5,18 +5,19 @@
 Pod::Spec.new do |s|
   s.name             = 'survicate_sdk'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'Flutter bindings for Survicate Mobile SDK'
   s.description      = <<-DESC
-A new Flutter plugin project.
+                      Official plugin for Survicate SDK integration with Flutter.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = "https://github.com/Survicate/survicate-flutter-sdk"
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Survicate' => 'help@survicate.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files     = 'Classes/**/*'
+  s.platform         = :ios, '12.0'
+  
   s.dependency 'Flutter'
   s.dependency 'Survicate', '3.0.2'
-  s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

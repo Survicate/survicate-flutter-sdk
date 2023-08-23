@@ -1,4 +1,4 @@
-package com.example.survicate_sdk
+package com.survicate.flutter
 
 import android.content.Context
 import androidx.annotation.NonNull
