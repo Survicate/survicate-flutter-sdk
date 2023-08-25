@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = "https://github.com/Survicate/survicate-flutter-sdk"
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Survicate' => 'help@survicate.com' }
+  s.author           = { 'Survicate' => 'hello@survicate.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.platform         = :ios, '12.0'
