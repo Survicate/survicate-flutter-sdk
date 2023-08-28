@@ -3,15 +3,16 @@ import UIKit
 import Survicate
 
 public class SurvicateSdkPlugin: NSObject, FlutterPlugin {
- 
-    let setWorkspaceKey = "setWorkspaceKey"
-    let initializeSdk = "initializeSdk"
-    let invokeEvent = "invokeEvent"
-    let enterScreen = "enterScreen"
-    let leaveScreen = "leaveScreen"
-    let setUserTraits = "setUserTraits"
-    let setUserTrait = "setUserTrait"
-    let reset = "reset"
+    enum Method: String {
+        case setWorkspaceKey = "setWorkspaceKey"
+        case initializeSdk = "initializeSdk"
+        case invokeEvent = "invokeEvent"
+        case enterScreen = "enterScreen"
+        case leaveScreen = "leaveScreen"
+        case setUserTraits = "setUserTraits"
+        case setUserTrait = "setUserTrait"
+        case reset = "reset"
+    }
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "survicate_sdk", binaryMessenger: registrar.messenger())
@@ -20,40 +21,49 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin {
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        switch call.method {
-        case setWorkspaceKey:
-            let workspaceKey = call.arguments as! String
-            try? SurvicateSdk.shared.setWorkspaceKey(workspaceKey)
+        guard let method = Method(rawValue: call.method) else {
+            result(FlutterMethodNotImplemented)
+            return
+        }
+
+        switch method {
+        case .setWorkspaceKey:
+            if let workspaceKey = call.arguments as? String {
+                try? SurvicateSdk.shared.setWorkspaceKey(workspaceKey)
+            }
             result(nil)
-        case initializeSdk:
+        case .initializeSdk:
             SurvicateSdk.shared.initialize()
             result(nil)
-        case invokeEvent:
-            let name = call.arguments as! String
-            SurvicateSdk.shared.invokeEvent(name: name)
+        case .invokeEvent:
+            if let name = call.arguments as? String {
+                SurvicateSdk.shared.invokeEvent(name: name)
+            }
             result(nil)
-        case enterScreen:
-            let name = call.arguments as! String
-            SurvicateSdk.shared.enterScreen(value: name)
+        case .enterScreen:
+            if let name = call.arguments as? String {
+                SurvicateSdk.shared.enterScreen(value: name)
+            }
             result(nil)
-        case leaveScreen:
-            let name = call.arguments as! String
-            SurvicateSdk.shared.leaveScreen(value: name)
+        case .leaveScreen:
+            if let name = call.arguments as? String {
+                SurvicateSdk.shared.leaveScreen(value: name)
+            }
             result(nil)
-        case setUserTrait:
-            let values = call.arguments as! Array<String>
-            let userTrait = UserTrait(withName: values[0], value: values[1])
-            SurvicateSdk.shared.setUserTrait(userTrait)
+        case .setUserTrait:
+            if let values = call.arguments as? Array<String>, values.count >= 2 {
+                let userTrait = UserTrait(withName: values[0], value: values[1])
+                SurvicateSdk.shared.setUserTrait(userTrait)
+            }
             result(nil)
-        case setUserTraits:
-            let value = call.arguments as! [String: String]
-            SurvicateSdk.shared.setUserTraits(withNamesAndValues: value)
+        case .setUserTraits:
+            if let value = call.arguments as? [String: String] {
+                SurvicateSdk.shared.setUserTraits(withNamesAndValues: value)
+            }
             result(nil)
-        case reset:
+        case .reset:
             SurvicateSdk.shared.reset()
             result(nil)
-        default:
-            result(FlutterMethodNotImplemented)
         }
     }
 }
