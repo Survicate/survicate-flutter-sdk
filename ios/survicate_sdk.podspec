@@ -2,9 +2,13 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint survicate_sdk.podspec` to validate before publishing.
 #
+require 'yaml'
+
+pubspec = YAML.load_file('../pubspec.yaml')
+
 Pod::Spec.new do |s|
   s.name             = 'survicate_sdk'
-  s.version          = '0.0.1'
+  s.version          = pubspec['version']
   s.summary          = 'Flutter bindings for Survicate Mobile SDK'
   s.description      = <<-DESC
                       Official plugin for Survicate SDK integration with Flutter.
