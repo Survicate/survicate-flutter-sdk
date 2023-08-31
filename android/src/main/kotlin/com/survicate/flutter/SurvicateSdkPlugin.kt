@@ -30,7 +30,14 @@ class SurvicateSdkPlugin: FlutterPlugin, MethodCallHandler {
       INVOKE_EVENT -> Survicate.invokeEvent(call.arguments!! as String)
       ENTER_SCREEN -> Survicate.enterScreen(call.arguments!! as String)
       LEAVE_SCREEN -> Survicate.leaveScreen(call.arguments!! as String)
-      SET_USER_TRAIT -> setUserTrait(call.argument("key")!!, call.argument("value")!!)
+      SET_USER_TRAIT -> {
+        val values = call.arguments as List<String>
+        if (values.size >= 2) {
+          setUserTrait(values[0], values[1])
+        } else {
+          throw IllegalArgumentException("Arguments must be a list of at least two strings")
+        }
+      }
       SET_USER_TRAITS -> setUserTraits(call.arguments!! as Map<String, String>)
       RESET -> Survicate.reset()
       else -> throw NotImplementedError("Method ${call.method} is not implemented")
@@ -48,6 +55,7 @@ class SurvicateSdkPlugin: FlutterPlugin, MethodCallHandler {
 
   private fun setUserTraits(values: Map<String, String>) {
     val userTraits = values.map { UserTrait(it.key, it.value) }
+    
     Survicate.setUserTraits(userTraits)
   }
 
