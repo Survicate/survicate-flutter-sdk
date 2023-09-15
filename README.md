@@ -6,19 +6,13 @@ The SDK is maintained and supported by [Survicate - The Customer Experience & Su
 
 The detailed documentation is available [here](https://developers.survicate.com/mobile-sdk/flutter). 
 
----
-
 ## Requirements
 
 * Using Survicate Mobile SDK requires an account at [survicate.com](https://survicate.com). You can create your account [here](https://panel.survicate.com/signup) for free, or become invited to your company account by one of your colleagues.
 * Additionally, please check [iOS](/mobile-sdk/ios/) and [Android](/mobile-sdk/android/) library requirements, as they're applicable too.
 
----
-
 ## Installation
 To use this plugin, add `survicate_sdk` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
-
----
 
 ## Configuration
 
@@ -71,7 +65,27 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
----
+## Usage
+```dart
+import 'package:survicate_sdk/survicate_sdk.dart';
+
+SurvicateSdk.initializeSdk();
+SurvicateSdk.invokeEvent("eventName");
+SurvicateSdk.enterScreen("screenName");
+SurvicateSdk.leaveScreen("screenName");
+SurvicateSdk.setUserTrait("traitName", "traitValue");
+Map<String, String> userTraits = {
+  'age': '30',
+  'gender': 'male',
+  'occupation': 'developer'
+};
+SurvicateSdk.setUserTraits(userTraits);
+SurvicateSdk.reset();
+```
+
+## Changelog
+
+The Survicate Mobile SDK change log can be found [here](https://developers.survicate.com/mobile-sdk/flutter/#changelog)
 
 ## Using SDK
 
@@ -136,5 +150,3 @@ If you need to test surveys on your device, `reset()` method might be helpful. T
 ```dart
 SurvicateSdk.reset();
 ```
-
----
