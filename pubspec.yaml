@@ -1,6 +1,6 @@
 name: survicate_sdk
 description: Official plugin for Survicate SDK integration with Flutter.
-version: 3.0.2
+version: 3.0.4
 homepage: https://survicate.com
 repository: https://github.com/Survicate/survicate-flutter-sdk
 documentation: https://developers.survicate.com/mobile-sdk/flutter/
