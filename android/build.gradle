@@ -2,14 +2,14 @@ group 'com.survicate.flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.9.10'
+    ext.kotlin_version = '1.8.10'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.2'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -28,7 +28,7 @@ apply plugin: 'kotlin-android'
 android {
     namespace 'com.survicate.flutter'
 
-    compileSdkVersion 34
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -51,7 +51,15 @@ android {
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
-        implementation 'com.survicate:survicate-sdk:3.0.6'
+        
+        implementation ('com.survicate:survicate-sdk:3.0.6') {
+            exclude group: 'io.coil-kt', module: 'coil-base'
+            exclude group: 'io.coil-kt', module: 'coil-gif'
+            exclude group: 'io.coil-kt', module: 'coil-svg'
+        }
+        implementation 'io.coil-kt:coil-base:2.4.0'
+        implementation 'io.coil-kt:coil-gif:2.4.0'
+        implementation 'io.coil-kt:coil-svg:2.4.0'
     }
 
     buildTypes {
