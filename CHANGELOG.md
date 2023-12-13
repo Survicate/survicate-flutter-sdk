@@ -1,3 +1,17 @@
+## 3.0.5
+### Android
+#### Updated
+- Survicate Android SDK to 3.0.6.
+- AGP to 8.1.2
+- Kotlin to 1.9.10
+- AndroidX RecyclerView to 1.3.2
+- Creating User Trait requires non null key.
+- Added a Proguard rule for User Traits.
+#### Fixed
+- An issue with saving User Traits that could cause crash whenever saved User Trait key was null.
+- An issue where answers saved without internet were not synchronized in next app sessions.
+- An issue with javadoc generation.
+
 ## 3.0.4
 ### iOS
 #### Fixed
