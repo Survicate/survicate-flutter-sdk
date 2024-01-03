@@ -1,3 +1,5 @@
+import 'package:survicate_sdk/user_trait.dart';
+
 import 'survicate_sdk_platform_interface.dart';
 
 class SurvicateSdk {
@@ -69,7 +71,7 @@ class SurvicateSdk {
     }
   }
 
-  /// Sets a single trait for the user, identified by [key], with the provided [value].
+  /// Sets a single [trait] for the user, identified by [trait.key], with the provided [trait.value].
   /// These can be arbitrary key-value pairs. Traits are persisted, so the client
   /// only needs to provide them once. Traits are sent to the system along
   /// with the user's answers to the survey. They are also used for targeting (e.g., a client
@@ -78,9 +80,9 @@ class SurvicateSdk {
   /// To change a trait, clients need to send the same key with a different value.
   /// See also:
   ///  * [setUserTraits], the method used to set multiple traits at once.
-  static void setUserTrait(String key, String value) async {
+ static void setUserTrait(UserTrait trait) async {
     try {
-      await SurvicateSdkPlatform.instance.setUserTrait(key, value);
+      await SurvicateSdkPlatform.instance.setUserTrait(trait.key, trait.value ?? "");
     } catch (e) {
       // ignore
     }
@@ -89,9 +91,13 @@ class SurvicateSdk {
   /// Sets multiple user traits at once using the provided [traits] map.
   /// See also:
   ///  * [setUserTrait], the method used to set a single trait.
-  static void setUserTraits(Map<String, String> traits) async {
+  static void setUserTraits(List<UserTrait> traits) async {
     try {
-      await SurvicateSdkPlatform.instance.setUserTraits(traits);
+      Map<String, String> userTraits = {};
+      for (var element in traits) {
+        userTraits[element.key] = element.value ?? "";
+      }
+      await SurvicateSdkPlatform.instance.setUserTraits(userTraits);
     } catch (e) {
       // ignore
     }
