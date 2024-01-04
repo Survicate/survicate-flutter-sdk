@@ -88,7 +88,7 @@ class SurvicateSdk {
     }
   }
 
-  /// Sets multiple user traits at once using the provided [traits] map.
+  /// Sets multiple user traits at once using the provided [traits] list.
   /// See also:
   ///  * [setUserTrait], the method used to set a single trait.
   static void setUserTraits(List<UserTrait> traits) async {
