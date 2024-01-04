@@ -1,18 +1,16 @@
 class UserTrait {
   String key;
-  String? value;
+  String value;
 
-  UserTrait(this.key, dynamic value) {
-    if (value is DateTime) {
-      this.value = formatDateToTimeZoneIso(value);
-    } else if (value != null) {
-      this.value = value.toString();
-    } else {
-      this.value = null;
-    }
-  }
+  UserTrait.string(this.key, this.value);
 
-  String formatDateToTimeZoneIso(DateTime date) {
+  UserTrait.bool(String key, bool value): this.string(key, value.toString());
+
+  UserTrait.dateTime(String key, DateTime value) : this.string(key, _formatDateToTimeZoneIso(value));
+
+  UserTrait.num(String key, num value) : this.string(key, value.toString());
+
+  static String _formatDateToTimeZoneIso(DateTime date) {
     var offset = date.timeZoneOffset.inMinutes;
     var offsetHours = (offset.abs() / 60).floor();
     var offsetMinutes = offset.abs() % 60;

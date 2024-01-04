@@ -82,7 +82,7 @@ class SurvicateSdk {
   ///  * [setUserTraits], the method used to set multiple traits at once.
  static void setUserTrait(UserTrait trait) async {
     try {
-      await SurvicateSdkPlatform.instance.setUserTrait(trait.key, trait.value ?? "");
+      await SurvicateSdkPlatform.instance.setUserTrait(trait.key, trait.value);
     } catch (e) {
       // ignore
     }
@@ -95,7 +95,7 @@ class SurvicateSdk {
     try {
       Map<String, String> userTraits = {};
       for (var element in traits) {
-        userTraits[element.key] = element.value ?? "";
+        userTraits[element.key] = element.value;
       }
       await SurvicateSdkPlatform.instance.setUserTraits(userTraits);
     } catch (e) {
