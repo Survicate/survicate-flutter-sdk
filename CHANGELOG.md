@@ -1,3 +1,28 @@
+## 4.0.0
+#### New
+- User conditions targeting is changed to the audience targeting: create an audience that will be available for usage among all your mobile surveys. Enable multiple audiences at the same time in one survey if necessary.
+- User attributes now support not only string values but also numbers, boolean, and datetime values.
+- New attribute operators are available to support new data types.
+- Survey audience can be set not only by including a set of respondents who met the required criteria but also by excluding those who should not see the survey.
+- And / or operators in audience targeting are switchable now: within one attribute filter that has several attributes in it and between different filters.
+ 
+#### Breaking
+- Method `setUserTrait` now takes single `UserTrait` argument instead of two String arguments.
+- Method `setUserTraits` now takes `List<UserTrait>` argument instead of `Map<String, String>` argument.
+
+### Android
+#### Updated
+- Bumping up reference of Android to 4.0.1.
+- Use `NetworkCapabilities` to check internet connection (API 24+).
+- Migrate to `WindowCompat` APIs for setting full screen background.
+
+#### Fixed
+- Fixed invalid survey closing when app has specified `android:enableOnBackInvokedCallback="true"` in the AndroidManifest.xml.
+
+### iOS
+#### Updated
+- Bumping up reference of iOS to 4.0.0.
+
 ## 3.0.5
 ### Android
 #### Updated
