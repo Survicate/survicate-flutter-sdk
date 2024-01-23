@@ -1,3 +1,21 @@
+## 4.0.1
+#### Updated
+- Bumping up reference of Android to 4.0.2.
+- Bumping up reference of iOS to 4.0.2.
+
+#### Improved
+- Date format in user traits recalling
+
+### iOS
+#### Fixed
+- A bug where users could see survey more times than specified in recurrence settings if SDK was updated in meantime
+- An issue where Thank you screen don't close survey in classic theme in iOS
+
+### Android
+#### Fixed
+- A bug where users could see survey more times than specified in recurrence settings if SDK was updated in meantime
+- Sending user attributes to backend only when necessary in Android
+
 ## 4.0.0
 #### New
 - User conditions targeting is changed to the audience targeting: create an audience that will be available for usage among all your mobile surveys. Enable multiple audiences at the same time in one survey if necessary.

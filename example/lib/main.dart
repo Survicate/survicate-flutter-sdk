@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:survicate_sdk/survicate_sdk.dart';
+import 'package:survicate_sdk/user_trait.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,16 +52,19 @@ class _MyAppState extends State<MyApp> {
             TextButton(
               child: const Text('Set User Trait'),
               onPressed: () {
-                SurvicateSdk.setUserTrait('Name', 'Jane Doe');
+                UserTrait trait = UserTrait.string('Name', 'Jane Doe');
+                SurvicateSdk.setUserTrait(trait);
               },
             ),
             TextButton(
               child: const Text('Set User Traits'),
               onPressed: () {
-                Map<String, String> traits = {
-                  'Name': 'Jane',
-                  'Color': 'Blue',
-                };
+                List<UserTrait> traits = [
+                  UserTrait.string("name", "Jane Doe"),
+                  UserTrait.num("age", 25),
+                  UserTrait.bool("isPremium", true),
+                  UserTrait.dateTime("lastLogin", DateTime.now()),
+                ];
                 SurvicateSdk.setUserTraits(traits);
               },
             ),
