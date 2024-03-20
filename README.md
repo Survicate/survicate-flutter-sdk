@@ -1,4 +1,4 @@
-# Mobile SDK - Flutter [pub version](https://img.shields.io/pub/v/survicate_sdk)
+# Mobile SDK - Flutter ![pub version](https://img.shields.io/pub/v/survicate_sdk)
 
 The Survicate Mobile SDK allows you to collect feedback from your mobile app users. Installed in your app, the SDK will enable you to trigger targeted surveys to better understand your users and collect their opinions about your products. 
 
