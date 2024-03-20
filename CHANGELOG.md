@@ -1,3 +1,19 @@
+## 4.2.0
+#### New
+- New targeting filter is available - screen orientation (portrait mode or landscape mode targeting). You can either include or exclude one of the orientation modes.
+
+#### Updated
+- Bumping up reference of Android to 4.2.0.
+- Bumping up reference of iOS to 4.2.0.
+
+### Android
+#### Improved
+- Performance enhancements in answers synchronization.
+
+#### Fixed
+- An issue where SurveyActivity could crash when it was restored after process termination.
+- A race condition in the recalling feature.
+
 ## 4.0.1
 #### Updated
 - Bumping up reference of Android to 4.0.2.
