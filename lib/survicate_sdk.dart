@@ -80,7 +80,7 @@ class SurvicateSdk {
   /// To change a trait, clients need to send the same key with a different value.
   /// See also:
   ///  * [setUserTraits], the method used to set multiple traits at once.
- static void setUserTrait(UserTrait trait) async {
+  static void setUserTrait(UserTrait trait) async {
     try {
       await SurvicateSdkPlatform.instance.setUserTrait(trait.key, trait.value);
     } catch (e) {

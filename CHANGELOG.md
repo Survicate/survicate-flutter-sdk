@@ -1,3 +1,16 @@
+## 4.3.0
+#### New
+- More flexible survey recurring options are available now. Now you can specify how many days / weeks / months / years should pass before the survey can appear again. It’s also possible to set after how many days / weeks / months / years the survey should stop recurring.
+- If you run several mobile surveys, now you can use survey throttling settings to specify a time frame that should pass between showing them. Use global throttling to set the same time frame for all your mobile surveys. Or use the survey level throttling to override the global settings and specify a different period before showing a particular survey.
+
+#### Updated
+- Bumping up reference of Android to 4.3.0.
+- Bumping up reference of iOS to 4.3.0.
+
+### iOS
+#### Fixed
+- Issue with recursive display of non-recurring survey.
+ 
 ## 4.2.0
 #### New
 - New targeting filter is available - screen orientation (portrait mode or landscape mode targeting). You can either include or exclude one of the orientation modes.
