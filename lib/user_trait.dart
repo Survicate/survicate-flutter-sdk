@@ -4,9 +4,10 @@ class UserTrait {
 
   UserTrait.string(this.key, this.value);
 
-  UserTrait.bool(String key, bool value): this.string(key, value.toString());
+  UserTrait.bool(String key, bool value) : this.string(key, value.toString());
 
-  UserTrait.dateTime(String key, DateTime value) : this.string(key, _formatDateToTimeZoneIso(value));
+  UserTrait.dateTime(String key, DateTime value)
+      : this.string(key, _formatDateToTimeZoneIso(value));
 
   UserTrait.num(String key, num value) : this.string(key, value.toString());
 
