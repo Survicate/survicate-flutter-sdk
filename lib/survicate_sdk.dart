@@ -1,6 +1,10 @@
+import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 import 'package:survicate_sdk/user_trait.dart';
 
 import 'survicate_sdk_platform_interface.dart';
+
+export 'survicate_sdk_event_listener.dart';
+export 'survicate_sdk_event_models.dart';
 
 class SurvicateSdk {
   // Prevent instantiation of the class
@@ -116,5 +120,22 @@ class SurvicateSdk {
     } catch (e) {
       // ignore
     }
+  }
+
+  /// Client can use this method to add event listener, e.g. to trigger certain actions
+  /// in application based on the visitor's actions.
+  /// 
+  /// @param listener Event listener to add.
+  static void addSurvicateEventListener(
+      SurvicateEventListenerInterface listener) {
+    SurvicateSdkPlatform.instance.addSurvicateEventListener(listener);
+  }
+  
+  /// Client can use this method to remove an event listener added previously by the [addSurvicateEventListener].
+  /// 
+  /// @param listener Event listener to remove.
+  static void removeSurvicateEventListener(
+      SurvicateEventListenerInterface listener) {
+    SurvicateSdkPlatform.instance.removeSurvicateEventListener(listener);
   }
 }

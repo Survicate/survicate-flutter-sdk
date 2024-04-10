@@ -65,6 +65,49 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
+## Usage
+```dart
+import 'package:survicate_sdk/survicate_sdk.dart';
+import 'package:survicate_sdk/user_trait.dart';
+
+// Invoke an event
+SurvicateSdk.invokeEvent("eventName");
+
+// Enter a screen
+SurvicateSdk.enterScreen("screenName");
+
+// Leave a screen
+SurvicateSdk.leaveScreen("screenName");
+
+// Set a single user trait
+UserTrait userIdTrait = UserTrait('user_id', 'id');
+SurvicateSdk.setUserTrait(userIdTrait);
+
+// Set multiple user traits
+List<UserTrait> traits = [
+  UserTrait('name', 'John'),
+  UserTrait('age', 25),
+  UserTrait('isPremium', true),
+  UserTrait('lastLogin', DateTime.now()),
+  UserTrait('timeOfPurchase', DateTime.now()),
+];
+SurvicateSdk.setUserTraits(traits);
+
+// Add an event listener
+SurvicateEventListener listener = SurvicateEventListener(
+  surveyDisplayed: (SurveyDisplayedEvent event) { },  // onSurveyDisplayed
+  questionAnswered: (QuestionAnsweredEvent event) { }, // onQuestionAnswered
+  surveyClosed: (SurveyClosedEvent event) { },  // onSurveyClosed
+  surveyCompleted: (SurveyCompletedEvent event) { }, // onSurveyCompleted
+);
+SurvicateSdk.addSurvicateEventListener(listener);
+
+// Remove an event listener
+SurvicateSdk.removeSurvicateEventListener(listener);
+
+// Reset the SDK
+SurvicateSdk.reset();
+
 ## Issues
 
 Got an Issue?
