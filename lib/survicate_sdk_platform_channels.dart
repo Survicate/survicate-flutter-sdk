@@ -62,6 +62,7 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   void addSurvicateEventListener(SurvicateEventListenerInterface listener) {
     _eventListeners.add(listener);
     if (_eventListeners.length > 1) return;
+    
     _eventSubscription = eventChannel
         .receiveBroadcastStream()
         .map<Map<String, dynamic>>(
@@ -91,6 +92,7 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   void removeSurvicateEventListener(SurvicateEventListenerInterface listener) {
     _eventListeners.remove(listener);
     if (_eventListeners.isNotEmpty) return;
+
     _eventSubscription?.cancel();
   }
 }
