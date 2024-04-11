@@ -1,14 +1,20 @@
 import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
+import 'package:survicate_sdk/survicate_sdk_integrations.dart';
 import 'package:survicate_sdk/user_trait.dart';
 
 import 'survicate_sdk_platform_interface.dart';
 
 export 'survicate_sdk_event_listener.dart';
 export 'survicate_sdk_event_models.dart';
+export 'survicate_sdk_integrations.dart';
 
 class SurvicateSdk {
   // Prevent instantiation of the class
   SurvicateSdk._();
+
+  /// The [integrations] object provides access to the extended methods of the SDK
+  /// for integrations with other services.
+  static Integrations integrations = Integrations();
 
   /// Sets workspace key to be used in SDK. Must be called before [initializeSdk] is called.
   ///
