@@ -14,10 +14,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final listener = SurvicateEventListener(
+    surveyDisplayed: (SurveyDisplayedEvent event) {
+      // onSurveyDisplayed
+    },
+    questionAnswered: (QuestionAnsweredEvent event) {
+      // onQuestionAnswered
+    },
+    surveyClosed: (SurveyClosedEvent event) {
+      // onSurveyClosed
+    },
+    surveyCompleted: (SurveyCompletedEvent event) {
+      // onSurveyCompleted
+    },
+  );
+
   @override
   void initState() {
     super.initState();
     SurvicateSdk.initializeSdk();
+    SurvicateSdk.addSurvicateEventListener(listener);
+  }
+
+  @override
+  void dispose() {
+    SurvicateSdk.removeSurvicateEventListener(listener);
+    super.dispose();
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 
-import 'survicate_sdk_method_channel.dart';
+import 'survicate_sdk_platform_channels.dart';
 
 abstract class SurvicateSdkPlatform extends PlatformInterface {
   /// Constructs a SurvicateSdkPlatform.
@@ -8,11 +9,11 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static SurvicateSdkPlatform _instance = MethodChannelSurvicateSdk();
+  static SurvicateSdkPlatform _instance = SurvicateSdkChannels();
 
   /// The default instance of [SurvicateSdkPlatform] to use.
   ///
-  /// Defaults to [MethodChannelSurvicateSdk].
+  /// Defaults to [SurvicateSdkChannels].
   static SurvicateSdkPlatform get instance => _instance;
 
   /// Platform-specific implementations should set this with their own
@@ -53,5 +54,13 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
 
   Future<void> reset() {
     throw UnimplementedError('reset() has not been implemented.');
+  }
+
+  void addSurvicateEventListener(SurvicateEventListenerInterface listener) {
+    throw UnimplementedError('addListener() has not been implemented.');
+  }
+
+  void removeSurvicateEventListener(SurvicateEventListenerInterface listener) {
+    throw UnimplementedError('removeListener() has not been implemented.');
   }
 }
