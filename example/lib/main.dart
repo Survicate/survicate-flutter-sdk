@@ -14,10 +14,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final listener = SurvicateEventListener(
+    onSurveyDisplayed: (SurveyDisplayedEvent event) {
+      // onSurveyDisplayed
+    },
+    onQuestionAnswered: (QuestionAnsweredEvent event) {
+      // onQuestionAnswered
+    },
+    onSurveyClosed: (SurveyClosedEvent event) {
+      // onSurveyClosed
+    },
+    onSurveyCompleted: (SurveyCompletedEvent event) {
+      // onSurveyCompleted
+    },
+  );
+
   @override
   void initState() {
     super.initState();
     SurvicateSdk.initializeSdk();
+    SurvicateSdk.addSurvicateEventListener(listener);
+  }
+
+  @override
+  void dispose() {
+    SurvicateSdk.removeSurvicateEventListener(listener);
+    super.dispose();
   }
 
   @override
@@ -47,6 +69,16 @@ class _MyAppState extends State<MyApp> {
               child: const Text('Invoke Event: Event'),
               onPressed: () {
                 SurvicateSdk.invokeEvent('Event');
+              },
+            ),
+            TextButton(
+              child: const Text('Invoke Event with Properties: Event'),
+              onPressed: () {
+                Map<String, String> properties = {
+                  'property1': 'value1',
+                  'property2': 'value2',
+                };
+                SurvicateSdk.invokeEvent('Event', eventProperties: properties);
               },
             ),
             TextButton(

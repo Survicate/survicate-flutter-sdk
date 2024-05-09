@@ -1,10 +1,20 @@
+import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
+import 'package:survicate_sdk/survicate_sdk_integrations.dart';
 import 'package:survicate_sdk/user_trait.dart';
 
 import 'survicate_sdk_platform_interface.dart';
 
+export 'survicate_sdk_event_listener.dart';
+export 'survicate_sdk_event_models.dart';
+export 'survicate_sdk_integrations.dart';
+
 class SurvicateSdk {
   // Prevent instantiation of the class
   SurvicateSdk._();
+
+  /// The [integrations] object provides access to the extended methods of the SDK
+  /// for integrations with other services.
+  static Integrations integrations = Integrations();
 
   /// Sets workspace key to be used in SDK. Must be called before [initializeSdk] is called.
   ///
@@ -30,9 +40,12 @@ class SurvicateSdk {
   /// show the survey only when an "add_to_basket" button is clicked.
   ///
   /// [eventName] An arbitrary event name.
-  static void invokeEvent(String eventName) async {
+  /// [eventProperties] An arbitrary event properties.
+  static void invokeEvent(String eventName,
+      {Map<String, String> eventProperties = const {}}) async {
     try {
-      await SurvicateSdkPlatform.instance.invokeEvent(eventName);
+      await SurvicateSdkPlatform.instance
+          .invokeEvent(eventName, eventProperties);
     } catch (e) {
       // ignore
     }
@@ -116,5 +129,22 @@ class SurvicateSdk {
     } catch (e) {
       // ignore
     }
+  }
+
+  /// Client can use this method to add event listener, e.g. to trigger certain actions
+  /// in application based on the visitor's actions.
+  ///
+  /// @param listener Event listener to add.
+  static void addSurvicateEventListener(
+      SurvicateEventListenerInterface listener) {
+    SurvicateSdkPlatform.instance.addSurvicateEventListener(listener);
+  }
+
+  /// Client can use this method to remove an event listener added previously by the [addSurvicateEventListener].
+  ///
+  /// @param listener Event listener to remove.
+  static void removeSurvicateEventListener(
+      SurvicateEventListenerInterface listener) {
+    SurvicateSdkPlatform.instance.removeSurvicateEventListener(listener);
   }
 }

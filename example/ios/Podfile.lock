@@ -2,10 +2,10 @@ PODS:
   - Flutter (1.0.0)
   - integration_test (0.0.1):
     - Flutter
-  - Survicate (4.2.0)
-  - survicate_sdk (4.2.0):
+  - Survicate (4.4.0)
+  - survicate_sdk (4.3.0):
     - Flutter
-    - Survicate (= 4.2.0)
+    - Survicate (= 4.4.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -27,8 +27,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   integration_test: 13825b8a9334a850581300559b8839134b124670
-  Survicate: 1107e33c117d2d92d091016bbb5a08ec73825875
-  survicate_sdk: a8746039910290032e3ef76402458148df27d324
+  Survicate: 95203578eb3234587aa5e130393a4451de6e8ff7
+  survicate_sdk: af80e1aedff535be725913f5c8e504a19e9fba4a
 
 PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
 
