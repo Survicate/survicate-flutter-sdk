@@ -40,21 +40,9 @@ class SurvicateSdk {
   /// show the survey only when an "add_to_basket" button is clicked.
   ///
   /// [eventName] An arbitrary event name.
-  static void invokeEvent(String eventName) async {
-    try {
-      await SurvicateSdkPlatform.instance.invokeEvent(eventName, {});
-    } catch (e) {
-      // ignore
-    }
-  }
-
-  /// Invoke a fire-and-forget event which can be used for targeting, e.g. client can choose to
-  /// show the survey only when an "add_to_basket" button is clicked.
-  ///
-  /// [eventName] An arbitrary event name.
   /// [eventProperties] An arbitrary event properties.
-  static void invokeEventWithProperties(
-      String eventName, Map<String, String> eventProperties) async {
+  static void invokeEvent(String eventName,
+      {Map<String, String> eventProperties = const {}}) async {
     try {
       await SurvicateSdkPlatform.instance
           .invokeEvent(eventName, eventProperties);

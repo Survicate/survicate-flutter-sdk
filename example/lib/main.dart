@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                   'property1': 'value1',
                   'property2': 'value2',
                 };
-                SurvicateSdk.invokeEventWithProperties('Event', properties);
+                SurvicateSdk.invokeEvent('Event', eventProperties: properties);
               },
             ),
             TextButton(
