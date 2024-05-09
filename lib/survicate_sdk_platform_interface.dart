@@ -32,7 +32,7 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
     throw UnimplementedError('initializeSdk() has not been implemented.');
   }
 
-  Future<void> invokeEvent(String eventName) {
+  Future<void> invokeEvent(String eventName, Map<String, String> properties) {
     throw UnimplementedError('invokeEvent() has not been implemented.');
   }
 

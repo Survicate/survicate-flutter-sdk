@@ -80,7 +80,13 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
         when (call.method) {
             SET_WORKSPACE_KEY -> Survicate.setWorkspaceKey(call.arguments!! as String)
             INITIALIZE_SDK -> Survicate.init(applicationContext)
-            INVOKE_EVENT -> Survicate.invokeEvent(call.arguments!! as String)
+            INVOKE_EVENT -> {
+                val eventName = call.argument<String>("eventName")
+                val eventProperties = call.argument<Map<String, String>>("eventProperties")
+                if (eventName != null && eventProperties != null) {
+                    Survicate.invokeEvent(eventName, eventProperties)
+                }
+            }
             ENTER_SCREEN -> Survicate.enterScreen(call.arguments!! as String)
             LEAVE_SCREEN -> Survicate.leaveScreen(call.arguments!! as String)
             SET_USER_TRAIT -> {

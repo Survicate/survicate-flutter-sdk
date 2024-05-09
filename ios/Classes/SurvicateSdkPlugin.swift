@@ -13,14 +13,14 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case setUserTrait = "setUserTrait"
         case reset = "reset"
     }
-
+    
     enum Event: String {
         case onSurveyDisplayed = "onSurveyDisplayed"
         case onQuestionAnswered = "onQuestionAnswered"
         case onSurveyClosed = "onSurveyClosed"
         case onSurveyCompleted = "onSurveyCompleted"
     }
-
+    
     enum EventKeys: String {
         case eventType = "event_type"
         case surveyId = "surveyId"
@@ -35,7 +35,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case answerValue = "answerValue"
         case panelAnswerUrl = "panelAnswerUrl"
     }
-
+    
     private var eventChannel: FlutterEventChannel?
     private var eventSink: FlutterEventSink?
     
@@ -43,7 +43,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         let channel = FlutterMethodChannel(name: "survicate_sdk", binaryMessenger: registrar.messenger())
         let instance = SurvicateSdkPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
-
+        
         let eventChannel = FlutterEventChannel(name: "survicate_sdk_events", binaryMessenger: registrar.messenger())
         eventChannel.setStreamHandler(instance)
     }
@@ -53,7 +53,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
             result(FlutterMethodNotImplemented)
             return
         }
-
+        
         switch method {
         case .setWorkspaceKey:
             if let workspaceKey = call.arguments as? String {
@@ -64,8 +64,10 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
             SurvicateSdk.shared.initialize()
             result(nil)
         case .invokeEvent:
-            if let name = call.arguments as? String {
-                SurvicateSdk.shared.invokeEvent(name: name)
+            if let params = call.arguments as? [String: Any],
+               let name = params["eventName"] as? String,
+               let properties = params["eventProperties"] as? [String: String] {
+                SurvicateSdk.shared.invokeEvent(name: name, with: properties)
             }
             result(nil)
         case .enterScreen:
@@ -134,7 +136,7 @@ extension SurvicateSdkPlugin: SurvicateDelegate {
         ]
         self.eventSink?(params)
     }
-
+    
     public func surveyClosed(event: SurveyClosedEvent) {
         let params: [String: Any] = [
             EventKeys.eventType.rawValue: Event.onSurveyClosed.rawValue,

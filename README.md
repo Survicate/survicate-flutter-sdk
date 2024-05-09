@@ -73,6 +73,13 @@ import 'package:survicate_sdk/user_trait.dart';
 // Invoke an event
 SurvicateSdk.invokeEvent("eventName");
 
+// Invoke an event with properties
+Map<String, String> properties = {
+  'property1': 'value1',
+  'property2': 'value2',
+};
+SurvicateSdk.invokeEventWithProperties('Event', properties);
+
 // Enter a screen
 SurvicateSdk.enterScreen("screenName");
 

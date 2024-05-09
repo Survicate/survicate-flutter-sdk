@@ -72,6 +72,16 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             TextButton(
+              child: const Text('Invoke Event with Properties: Event'),
+              onPressed: () {
+                Map<String, String> properties = {
+                  'property1': 'value1',
+                  'property2': 'value2',
+                };
+                SurvicateSdk.invokeEventWithProperties('Event', properties);
+              },
+            ),
+            TextButton(
               child: const Text('Set User Trait'),
               onPressed: () {
                 UserTrait trait = UserTrait.string('Name', 'Jane Doe');

@@ -42,7 +42,22 @@ class SurvicateSdk {
   /// [eventName] An arbitrary event name.
   static void invokeEvent(String eventName) async {
     try {
-      await SurvicateSdkPlatform.instance.invokeEvent(eventName);
+      await SurvicateSdkPlatform.instance.invokeEvent(eventName, {});
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /// Invoke a fire-and-forget event which can be used for targeting, e.g. client can choose to
+  /// show the survey only when an "add_to_basket" button is clicked.
+  ///
+  /// [eventName] An arbitrary event name.
+  /// [eventProperties] An arbitrary event properties.
+  static void invokeEventWithProperties(
+      String eventName, Map<String, String> eventProperties) async {
+    try {
+      await SurvicateSdkPlatform.instance
+          .invokeEvent(eventName, eventProperties);
     } catch (e) {
       // ignore
     }
@@ -130,15 +145,15 @@ class SurvicateSdk {
 
   /// Client can use this method to add event listener, e.g. to trigger certain actions
   /// in application based on the visitor's actions.
-  /// 
+  ///
   /// @param listener Event listener to add.
   static void addSurvicateEventListener(
       SurvicateEventListenerInterface listener) {
     SurvicateSdkPlatform.instance.addSurvicateEventListener(listener);
   }
-  
+
   /// Client can use this method to remove an event listener added previously by the [addSurvicateEventListener].
-  /// 
+  ///
   /// @param listener Event listener to remove.
   static void removeSurvicateEventListener(
       SurvicateEventListenerInterface listener) {
