@@ -78,7 +78,7 @@ Map<String, String> properties = {
   'property1': 'value1',
   'property2': 'value2',
 };
-SurvicateSdk.invokeEventWithProperties('Event', properties);
+SurvicateSdk.invokeEvent('Event', properties);
 
 // Enter a screen
 SurvicateSdk.enterScreen("screenName");
