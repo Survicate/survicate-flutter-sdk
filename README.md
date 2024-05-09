@@ -114,6 +114,7 @@ SurvicateSdk.removeSurvicateEventListener(listener);
 
 // Reset the SDK
 SurvicateSdk.reset();
+```
 
 ## Issues
 
