@@ -62,7 +62,7 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   void addSurvicateEventListener(SurvicateEventListenerInterface listener) {
     _eventListeners.add(listener);
     if (_eventListeners.length > 1) return;
-    
+
     _eventSubscription = eventChannel
         .receiveBroadcastStream()
         .map<Map<String, dynamic>>(
@@ -72,16 +72,16 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
       for (var eventListener in _eventListeners) {
         switch (map['event_type'] as String) {
           case 'onSurveyDisplayed':
-            eventListener.onSurveyDisplayed(SurveyDisplayedEvent.from(map));
+            eventListener.surveyDisplayed(SurveyDisplayedEvent.from(map));
             break;
           case 'onQuestionAnswered':
-            eventListener.onQuestionAnswered(QuestionAnsweredEvent.from(map));
+            eventListener.questionAnswered(QuestionAnsweredEvent.from(map));
             break;
           case 'onSurveyClosed':
-            eventListener.onSurveyClosed(SurveyClosedEvent.from(map));
+            eventListener.surveyClosed(SurveyClosedEvent.from(map));
             break;
           case 'onSurveyCompleted':
-            eventListener.onSurveyCompleted(SurveyCompletedEvent.from(map));
+            eventListener.surveyCompleted(SurveyCompletedEvent.from(map));
             break;
         }
       }

@@ -15,16 +15,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final listener = SurvicateEventListener(
-    surveyDisplayed: (SurveyDisplayedEvent event) {
+    onSurveyDisplayed: (SurveyDisplayedEvent event) {
       // onSurveyDisplayed
     },
-    questionAnswered: (QuestionAnsweredEvent event) {
+    onQuestionAnswered: (QuestionAnsweredEvent event) {
       // onQuestionAnswered
     },
-    surveyClosed: (SurveyClosedEvent event) {
+    onSurveyClosed: (SurveyClosedEvent event) {
       // onSurveyClosed
     },
-    surveyCompleted: (SurveyCompletedEvent event) {
+    onSurveyCompleted: (SurveyCompletedEvent event) {
       // onSurveyCompleted
     },
   );
