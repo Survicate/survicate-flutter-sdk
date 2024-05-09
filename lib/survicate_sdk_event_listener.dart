@@ -3,50 +3,50 @@
 import 'package:survicate_sdk/survicate_sdk_event_models.dart';
 
 abstract class SurvicateEventListenerInterface {
-  void onSurveyDisplayed(SurveyDisplayedEvent event) {}
-  void onQuestionAnswered(QuestionAnsweredEvent event) {}
-  void onSurveyClosed(SurveyClosedEvent event) {}
-  void onSurveyCompleted(SurveyCompletedEvent event) {}
+  void surveyDisplayed(SurveyDisplayedEvent event) {}
+  void questionAnswered(QuestionAnsweredEvent event) {}
+  void surveyClosed(SurveyClosedEvent event) {}
+  void surveyCompleted(SurveyCompletedEvent event) {}
 }
 
 class SurvicateEventListener implements SurvicateEventListenerInterface {
-  final void Function(SurveyDisplayedEvent event)? surveyDisplayed;
-  final void Function(QuestionAnsweredEvent event)? questionAnswered;
-  final void Function(SurveyClosedEvent event)? surveyClosed;
-  final void Function(SurveyCompletedEvent event)? surveyCompleted;
+  final void Function(SurveyDisplayedEvent event)? onSurveyDisplayed;
+  final void Function(QuestionAnsweredEvent event)? onQuestionAnswered;
+  final void Function(SurveyClosedEvent event)? onSurveyClosed;
+  final void Function(SurveyCompletedEvent event)? onSurveyCompleted;
 
   SurvicateEventListener({
-    this.surveyDisplayed,
-    this.questionAnswered,
-    this.surveyClosed,
-    this.surveyCompleted,
+    this.onSurveyDisplayed,
+    this.onQuestionAnswered,
+    this.onSurveyClosed,
+    this.onSurveyCompleted,
   });
 
   @override
-  void onSurveyDisplayed(SurveyDisplayedEvent event) {
-    if (surveyDisplayed != null) {
-      surveyDisplayed!(event);
+  void surveyDisplayed(SurveyDisplayedEvent event) {
+    if (onSurveyDisplayed != null) {
+      onSurveyDisplayed!(event);
     }
   }
 
   @override
-  void onQuestionAnswered(QuestionAnsweredEvent event) {
-    if (questionAnswered != null) {
-      questionAnswered!(event);
+  void questionAnswered(QuestionAnsweredEvent event) {
+    if (onQuestionAnswered != null) {
+      onQuestionAnswered!(event);
     }
   }
 
   @override
-  void onSurveyClosed(SurveyClosedEvent event) {
-    if (surveyClosed != null) {
-      surveyClosed!(event);
+  void surveyClosed(SurveyClosedEvent event) {
+    if (onSurveyClosed != null) {
+      onSurveyClosed!(event);
     }
   }
 
   @override
-  void onSurveyCompleted(SurveyCompletedEvent event) {
-    if (surveyCompleted != null) {
-      surveyCompleted!(event);
+  void surveyCompleted(SurveyCompletedEvent event) {
+    if (onSurveyCompleted != null) {
+      onSurveyCompleted!(event);
     }
   }
 }

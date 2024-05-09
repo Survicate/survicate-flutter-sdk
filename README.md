@@ -102,10 +102,10 @@ SurvicateSdk.setUserTraits(traits);
 
 // Add an event listener
 SurvicateEventListener listener = SurvicateEventListener(
-  surveyDisplayed: (SurveyDisplayedEvent event) { },  // onSurveyDisplayed
-  questionAnswered: (QuestionAnsweredEvent event) { }, // onQuestionAnswered
-  surveyClosed: (SurveyClosedEvent event) { },  // onSurveyClosed
-  surveyCompleted: (SurveyCompletedEvent event) { }, // onSurveyCompleted
+  onSurveyDisplayed: (SurveyDisplayedEvent event) { },  // onSurveyDisplayed
+  onQuestionAnswered: (QuestionAnsweredEvent event) { }, // onQuestionAnswered
+  onSurveyClosed: (SurveyClosedEvent event) { },  // onSurveyClosed
+  onSurveyCompleted: (SurveyCompletedEvent event) { }, // onSurveyCompleted
 );
 SurvicateSdk.addSurvicateEventListener(listener);
 
