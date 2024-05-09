@@ -1,3 +1,16 @@
+## 4.4.0
+#### New
+- New targeting option available - event properties. You can add multiple properties to one event and join them with either “or” or “and” operator. Property names and values are case-sensitive. Only string values are supported.
+
+#### Updated
+- Bumping up reference of Android to 4.4.0.
+- Bumping up reference of iOS to 4.4.0.
+
+### Android
+#### Fixed
+- A bug that could prevent a survey from being displayed if a delay was set for multiple screens in the panel.
+- Horizontal mode support for Numerical Rating question for up to 5 items.
+  
 ## 4.3.0
 #### New
 - More flexible survey recurring options are available now. Now you can specify how many days / weeks / months / years should pass before the survey can appear again. It’s also possible to set after how many days / weeks / months / years the survey should stop recurring.
