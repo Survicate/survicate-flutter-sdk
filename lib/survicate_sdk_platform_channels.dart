@@ -29,8 +29,10 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   }
 
   @override
-  Future<void> invokeEvent(String eventName, Map<String, String> properties) async {
-    await methodChannel.invokeMethod('invokeEvent', {"eventName": eventName, "eventProperties": properties});
+  Future<void> invokeEvent(
+      String eventName, Map<String, String> properties) async {
+    await methodChannel.invokeMethod(
+        'invokeEvent', {"eventName": eventName, "eventProperties": properties});
   }
 
   @override
