@@ -70,6 +70,13 @@ class _MyAppState extends State<MyApp> {
 import 'package:survicate_sdk/survicate_sdk.dart';
 import 'package:survicate_sdk/user_trait.dart';
 
+// Set workspace key in code
+SurvicateSdk.setWorkspaceKey("WORKSPACE_KEY");
+
+// Initialize an SDK
+SurvicateSdk.initializeSdk();
+
+
 // Invoke an event
 SurvicateSdk.invokeEvent("eventName");
 
