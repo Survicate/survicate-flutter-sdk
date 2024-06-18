@@ -10,7 +10,6 @@ const _answerIds = "answerIds";
 const _answerValue = "answerValue";
 const _panelAnswerUrl = "panelAnswerUrl";
 
-
 /// An event that is emitted when a survey is displayed to the visitor.
 class SurveyDisplayedEvent {
   final String surveyId;

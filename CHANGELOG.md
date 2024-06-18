@@ -1,3 +1,20 @@
+## 5.0.0
+#### New
+- Matrix question type added.
+
+#### Updated
+- Bumping up reference of Android to 5.0.0.
+- Bumping up reference of iOS to 5.0.0.
+
+### Android
+#### Fixed
+- UI state bugs related to Activity's configuration changes.
+- Animation resource names that could conflict with resources of the app or other libraries on Android.
+
+### iOS
+#### Fixed
+- An issue where `setUserTraits` no longer clears previously set user traits.
+
 ## 4.4.0
 #### New
 - New targeting option available - event properties. You can add multiple properties to one event and join them with either “or” or “and” operator. Property names and values are case-sensitive. Only string values are supported.

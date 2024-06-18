@@ -13,11 +13,14 @@ abstract class SurvicateEventListenerInterface {
 class SurvicateEventListener implements SurvicateEventListenerInterface {
   /// Every display of a survey is followed by this event emission.
   final void Function(SurveyDisplayedEvent event)? onSurveyDisplayed;
+
   /// As soon as the visitor answers a question, Survicate emits this event.
   final void Function(QuestionAnsweredEvent event)? onQuestionAnswered;
+
   /// If at any stage of the survey, visitor clicks the close button,
   /// Survicate will emit this event.
   final void Function(SurveyClosedEvent event)? onSurveyClosed;
+
   /// Once a survey has been completed, Survicate emits this event.
   ///
   /// Survey is considered to be completed, when a visitor has answered every single question
