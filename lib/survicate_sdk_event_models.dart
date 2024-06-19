@@ -10,6 +10,7 @@ const _answerIds = "answerIds";
 const _answerValue = "answerValue";
 const _panelAnswerUrl = "panelAnswerUrl";
 
+/// An event that is emitted when a survey is displayed to the visitor.
 class SurveyDisplayedEvent {
   final String surveyId;
 
@@ -20,6 +21,7 @@ class SurveyDisplayedEvent {
   }
 }
 
+/// An event that is emitted when a visitor answers a question in a survey.
 class QuestionAnsweredEvent {
   final String surveyId;
   final String surveyName;
@@ -78,6 +80,7 @@ class SurvicateAnswer {
   }
 }
 
+/// An event that is emitted when a survey is closed by the visitor.
 class SurveyClosedEvent {
   final String surveyId;
 
@@ -88,6 +91,7 @@ class SurveyClosedEvent {
   }
 }
 
+/// An event that is emitted when a survey is completed by the visitor.
 class SurveyCompletedEvent {
   final String surveyId;
 
