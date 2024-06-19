@@ -13,7 +13,7 @@
 
 ### iOS
 #### Fixed
-- An issue where `setUserTraits` no longer clears previously set user traits.
+- An issue where `setUserTraits` cleared previously set user traits.
 
 ## 4.4.0
 #### New
