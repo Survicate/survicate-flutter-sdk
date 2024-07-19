@@ -1,3 +1,25 @@
+## 5.1.0
+#### New
+- Navigation buttons are available now. When enabled, your survey respondents can go back to the previous questions, see their selected answers, and change them if necessary.
+
+#### Updated
+- Bumping up reference of Android to 5.1.0.
+- Bumping up reference of iOS to 5.1.1.
+
+### Android
+#### Improved
+- Higher resolution of Smiley scale icons.
+
+### Android
+#### Fixed
+- Propagating Matrix answer in `SurvicateAnswer.value` of event listener.
+- An issue that resulted in unexpected vertical padding for Matrix question in full screen mode.
+
+### iOS
+#### Fixed 
+- Propagating Matrix answer in `SurvicateAnswer.value` of event listener.
+- Configuration json will be printed in console only in verbose log level.
+
 ## 5.0.0
 #### New
 - Matrix question type added.
