@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '12.0'
   
   s.dependency 'Flutter'
-  s.dependency 'Survicate', '5.1.1'
+  s.dependency 'Survicate', '5.1.2'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
