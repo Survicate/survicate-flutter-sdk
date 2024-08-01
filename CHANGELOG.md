@@ -1,3 +1,22 @@
+## 5.1.1
+#### Updated
+- Bumping up reference of Android to 5.1.1.
+- Bumping up reference of iOS to 5.1.2.
+  
+#### Improved
+- More distinguishable emojis in the 3-choice Smiley scale.
+
+### Android
+#### Fixed
+- Excessive spacing between Smiley scale emojis in the 3-choice layout.
+- Back button icon color on dark backgrounds.
+- An issue where "Submit" was displayed instead of "Start Survey" on the welcome CTA point after navigating back to it.
+
+### iOS
+#### Fixed 
+- Excessive spacing between Smiley scale emojis in the 3-choice layout.
+- Issue on iOS with non visible Submit button in multiple choice questions.
+
 ## 5.1.0
 #### New
 - Navigation buttons are available now. When enabled, your survey respondents can go back to the previous questions, see their selected answers, and change them if necessary.
