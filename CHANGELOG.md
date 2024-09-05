@@ -1,3 +1,20 @@
+## 5.2.0
+#### New
+- New conditions are available in event targeting:
+    - Time delay after event occurrence.
+    - Number of event occurrences.
+    - Time of the first occurrence.
+    - Time of the last occurrence.
+If multiple conditions are applied, all of them should be met for a survey to appear.
+
+#### Updated
+- Bumping up reference of Android to 5.2.0.
+- Bumping up reference of iOS to 5.2.0.
+
+### iOS
+#### Fixed 
+- Fixed an issue with submit button visibility in single choice question.
+  
 ## 5.1.1
 #### Updated
 - Bumping up reference of Android to 5.1.1.
