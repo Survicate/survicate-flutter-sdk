@@ -1,3 +1,7 @@
+## 5.3.0
+#### New
+- Once an event is invoked in the app, its name and property names are also sent to Survicate’s panel now. They will be shown as suggestions when a user configures event targeting of a survey.
+
 ## 5.2.0
 #### New
 - New conditions are available in event targeting:
