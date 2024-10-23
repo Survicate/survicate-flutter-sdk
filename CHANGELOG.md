@@ -1,3 +1,10 @@
+## 5.4.0
+#### New
+- Each question type except Welcome message, Date, and Thank you screen can be set as mandatory or optional.
+
+#### Improved
+- Accessibility features for Matrix question, survey progress indicator, and navigation buttons.
+
 ## 5.3.0
 #### New
 - Once an event is invoked in the app, its name and property names are also sent to Survicate’s panel now. They will be shown as suggestions when a user configures event targeting of a survey.
