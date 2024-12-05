@@ -1,3 +1,12 @@
+## 5.5.0
+#### New
+- You can now add a comment field to NPS, Smiley scale, Rating scale, Matrix, and Date question types. There is also a comment title available for all comment fields. You can use it to ask a question and give your respondents some context of what you would like to see in the comment.
+
+### Android
+#### Updated
+- AndroidX Annotation to 1.9.1
+- Coroutines Android to 1.9.0
+
 ## 5.4.0
 #### New
 - Each question type except Welcome message, Date, and Thank you screen can be set as mandatory or optional.
