@@ -1,3 +1,11 @@
+## 5.5.1
+### iOS
+#### Fixed
+- Fixed an issue where comments were missing in event listeners.
+- Fixed an issue where in Smiley Scale question in some cases the submit button was disabled.
+- Fixed an issue with missing submit button in Multiple Answer question.
+- Fixed an issue with missing comment field in CSAT question when answer is mandatory.
+
 ## 5.5.0
 #### New
 - You can now add a comment field to NPS, Smiley scale, Rating scale, Matrix, and Date question types. There is also a comment title available for all comment fields. You can use it to ask a question and give your respondents some context of what you would like to see in the comment.
