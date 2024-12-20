@@ -1,3 +1,12 @@
+## 5.5.2
+### Android
+#### Fixed
+- Fixed an issue with `getNetworkCapabilities` method that could occasionally cause exceptions during SDK initialization.
+
+### iOS
+#### Fixed
+- Fixed a crash caused by non-thread-safe access to `localizedDescription` during error logging.
+
 ## 5.5.1
 ### iOS
 #### Fixed
