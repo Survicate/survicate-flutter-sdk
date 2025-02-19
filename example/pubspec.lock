@@ -229,7 +229,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "5.5.2"
+    version: "6.0.0"
   sync_http:
     dependency: transitive
     description:

@@ -52,7 +52,7 @@ android {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
         
-        implementation ('com.survicate:survicate-sdk:5.5.1')
+        implementation ('com.survicate:survicate-sdk:6.0.0')
     
 }
     buildTypes {

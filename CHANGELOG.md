@@ -1,3 +1,45 @@
+## 6.0.0
+### Android
+#### Breaking
+- SDK requires CompileSDK 34 or higher
+
+### iOS
+#### Breaking
+- SDK requires minimum deployment target of iOS 14.
+
+#### New
+- Survey logic has been split into 2 types - Branch and Display logic.
+
+  Branch logic includes all the previously available logic settings that allow you to select which question your respondents should see next based on their response to the current question.
+
+  A new type of logic - Display logic - allows you to decide whether the current question should be shown or not based on the respondents’ answers to the questions earlier in the survey.
+
+#### Improved
+- Surveys are now displayed consecutively, if more than one survey meets the targeting criteria (instantly recurring surveys without event trigger will result in showing the survey in a loop).
+- Improved animation on survey close and completion on Android.
+
+### Android
+#### Updated
+- Removed deprecated event listeners callbacks
+- Removed deprecated predefined UserTraits
+- Removed deprecated `SurvicateSdk.setEventListener` and `SurvicateSdk.changeWorkspaceKey` methods
+- AndroidX AppCompat to 1.7.0
+- AndroidX ConstraintLayout to 2.2.0
+- AndroidX Transition to 1.5.1
+- Moshi to 1.15.2
+- Coil to 2.7.0
+
+### iOS
+#### Updated
+- Removed deprecated event listeners callbacks.
+- Removed deprecated predefined UserTraits.
+- Removed deprecated `SurvicateSdk.shared.delegate` property.</dd>
+- Removed deprecated `SurvicateSdk.shared.setApiKey` methods.</dd>
+
+### iOS
+#### Fixed
+- An issue with answer selection in `shape` question
+
 ## 5.5.2
 ### Android
 #### Fixed
