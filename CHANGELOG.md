@@ -18,23 +18,9 @@
 - Surveys are now displayed consecutively, if more than one survey meets the targeting criteria (instantly recurring surveys without event trigger will result in showing the survey in a loop).
 - Improved animation on survey close and completion on Android.
 
-### Android
 #### Updated
-- Removed deprecated event listeners callbacks
-- Removed deprecated predefined UserTraits
-- Removed deprecated `SurvicateSdk.setEventListener` and `SurvicateSdk.changeWorkspaceKey` methods
-- AndroidX AppCompat to 1.7.0
-- AndroidX ConstraintLayout to 2.2.0
-- AndroidX Transition to 1.5.1
-- Moshi to 1.15.2
-- Coil to 2.7.0
-
-### iOS
-#### Updated
-- Removed deprecated event listeners callbacks.
-- Removed deprecated predefined UserTraits.
-- Removed deprecated `SurvicateSdk.shared.delegate` property.</dd>
-- Removed deprecated `SurvicateSdk.shared.setApiKey` methods.</dd>
+- Bumping up reference of Android to 6.0.0.
+- Bumping up reference of iOS to 6.0.0.
 
 ### iOS
 #### Fixed
