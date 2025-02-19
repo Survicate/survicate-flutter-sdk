@@ -1,3 +1,31 @@
+## 6.0.0
+### Android
+#### Breaking
+- SDK requires CompileSDK 34 or higher
+
+### iOS
+#### Breaking
+- SDK requires minimum deployment target of iOS 14.
+
+#### New
+- Survey logic has been split into 2 types - Branch and Display logic.
+
+  Branch logic includes all the previously available logic settings that allow you to select which question your respondents should see next based on their response to the current question.
+
+  A new type of logic - Display logic - allows you to decide whether the current question should be shown or not based on the respondents’ answers to the questions earlier in the survey.
+
+#### Improved
+- Surveys are now displayed consecutively, if more than one survey meets the targeting criteria (instantly recurring surveys without event trigger will result in showing the survey in a loop).
+- Improved animation on survey close and completion on Android.
+
+#### Updated
+- Bumping up reference of Android to 6.0.0.
+- Bumping up reference of iOS to 6.0.0.
+
+### iOS
+#### Fixed
+- An issue with answer selection in `shape` question
+
 ## 5.5.2
 ### Android
 #### Fixed
