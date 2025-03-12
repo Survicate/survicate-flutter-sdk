@@ -5,6 +5,10 @@
 #### Improved
 - Enhanced support for landscape orientation.
 
+#### Updated
+- Bumping up reference of Android to 6.1.0.
+- Bumping up reference of iOS to 6.1.0.
+
 #### Fixed
 - The "has any value" logic condition in Matrix question now applies also to partial and empty answers.
 
