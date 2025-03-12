@@ -1,3 +1,13 @@
+## 6.1.0
+#### New
+- You can add a disclaimer with or without a consent checkbox to all question types.
+
+#### Improved
+- Enhanced support for landscape orientation.
+
+#### Fixed
+- The "has any value" logic condition in Matrix question now applies also to partial and empty answers.
+
 ## 6.0.0
 ### Android
 #### Breaking
