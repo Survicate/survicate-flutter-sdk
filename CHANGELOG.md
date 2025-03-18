@@ -1,3 +1,11 @@
+## 6.2.0
+#### New
+- You can add images to every question type. Available image placement options are above and under the questions.
+
+#### Updated
+- Bumping up reference of Android to 6.2.0.
+- Bumping up reference of iOS to 6.2.0.
+
 ## 6.1.0
 #### New
 - You can add a disclaimer with or without a consent checkbox to all question types.
