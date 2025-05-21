@@ -99,6 +99,9 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
             }
             SET_USER_TRAITS -> setUserTraits(call.arguments!! as Map<String, String>)
             RESET -> Survicate.reset()
+            SET_LOCALE -> {
+                Survicate.setLocale(call.arguments!! as String)
+            }
             else -> throw NotImplementedError("Method ${call.method} is not implemented")
         }
     }
@@ -138,6 +141,7 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
         const val SET_USER_TRAIT = "setUserTrait"
         const val SET_USER_TRAITS = "setUserTraits"
         const val RESET = "reset"
+        const val SET_LOCALE = "setLocale"
 
         const val ON_SURVEY_DISPLAYED = "onSurveyDisplayed"
         const val ON_QUESTION_ANSWERED = "onQuestionAnswered"

@@ -63,4 +63,8 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
   void removeSurvicateEventListener(SurvicateEventListenerInterface listener) {
     throw UnimplementedError('removeListener() has not been implemented.');
   }
+
+  Future<void> setLocale(String locale) {
+    throw UnimplementedError('setLocale() has not been implemented.');
+  }
 }

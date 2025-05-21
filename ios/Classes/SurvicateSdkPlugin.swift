@@ -12,6 +12,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case setUserTraits = "setUserTraits"
         case setUserTrait = "setUserTrait"
         case reset = "reset"
+        case setLocale = "setLocale"
     }
     
     enum Event: String {
@@ -93,6 +94,11 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
             result(nil)
         case .reset:
             SurvicateSdk.shared.reset()
+            result(nil)
+        case .setLocale:
+            if let locale = call.arguments as? String {
+                SurvicateSdk.shared.setLocale(locale)
+            }
             result(nil)
         }
     }

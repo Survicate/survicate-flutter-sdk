@@ -97,4 +97,9 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
 
     _eventSubscription?.cancel();
   }
+
+  @override
+  Future<void> setLocale(String locale) async {
+    await methodChannel.invokeMethod('setLocale', locale);
+  }
 }
