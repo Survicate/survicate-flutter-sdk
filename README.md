@@ -107,6 +107,9 @@ List<UserTrait> traits = [
 ];
 SurvicateSdk.setUserTraits(traits);
 
+// Set locale
+SurvicateSdk.setLocale('en-US');
+
 // Add an event listener
 SurvicateEventListener listener = SurvicateEventListener(
   onSurveyDisplayed: (SurveyDisplayedEvent event) { },  // onSurveyDisplayed
