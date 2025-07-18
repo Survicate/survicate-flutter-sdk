@@ -1,6 +1,6 @@
 ### 6.3.3 (2025-07-18)
 #### Fixed
-- An issue with non wrapping description text in `nps`, `rating numerical` and `rating shape` question types.
+- An issue on iOS with non wrapping description text in `nps`, `rating numerical` and `rating shape` question types.
 - An issue on iOS with resolving survey language based on device language instead of the app language
 - An issue on iOS with submit section visibility in `single answer selection`, `nps`, `smiley scale` and `rating` question types when the question is set as mandatory and disclaimer is present .
 
