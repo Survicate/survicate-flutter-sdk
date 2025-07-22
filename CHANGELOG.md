@@ -1,3 +1,7 @@
+### 6.3.4 (2025-07-22)
+#### Fixed
+- An issue on iOS with scroll in `single answer selection` and `multiple answer selection` question types after selecting an answer.
+
 ### 6.3.3 (2025-07-18)
 #### Fixed
 - An issue on iOS with non wrapping description text in `nps`, `rating numerical` and `rating shape` question types.

@@ -150,7 +150,7 @@ class SurvicateSdk {
 
   /// Sets the preferred locale used for survey translations and targeting filters.
   /// The specified locale takes priority over the device's default locale.
-  /// 
+  ///
   /// This method affects only the Survicate SDK and does not change in any way the app locale settings.
   ///
   /// [languageTag] An IETF language tag such as:
