@@ -1,3 +1,17 @@
+### 6.3.5 (2025-08-25)
+#### Improved
+- Performance optimization on Android by moving some SDK initialization tasks to a background thread.
+#### Fixed
+- An issue on iOS with delayed event triggers conflicting with workspace refresh attempts.
+- An issue on iOS with thread-safety causing crashes during concurrent SDK initialization.
+- An issue on iOS with thread safety that occurred when loading plist properties from background threads, ensuring proper synchronization and preventing potential crashes during configuration loading.
+- An issue on Android where an instantly recurring survey with a delayed event trigger could reappear after being closed in long app sessions.
+#### Updated
+- AndroidX AppCompat to 1.7.1
+- AndroidX Autofill to 1.3.0
+- Added OkHttp 4.12.0 dependency
+- Added AndroidX Lifecycle Process 2.8.7 dependency
+
 ### 6.3.4 (2025-07-22)
 #### Fixed
 - An issue on iOS with scroll in `single answer selection` and `multiple answer selection` question types after selecting an answer.
