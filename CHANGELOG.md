@@ -1,3 +1,16 @@
+### 6.4.0 (2025-09-01)
+#### New
+- More operators are now available for targeting by event properties. Previously, the only option available and applied by default was "equals". Now you can select among these operators:
+  - equals
+  - doesn't equal
+  - contains
+  - doesn't contain
+  - value exists
+  - value doesn't exist
+
+#### Improved
+- Performance optimization on iOS by moving some SDK initialization tasks to a background thread.
+
 ### 6.3.5 (2025-08-25)
 #### Improved
 - Performance optimization on Android by moving some SDK initialization tasks to a background thread.
