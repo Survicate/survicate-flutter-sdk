@@ -1,3 +1,7 @@
+### 6.4.1 (2025-09-15)
+#### Fixed
+- An issue on iOS preventing listeners from being added at SDK initialization.
+
 ### 6.4.0 (2025-09-01)
 #### New
 - More operators are now available for targeting by event properties. Previously, the only option available and applied by default was "equals". Now you can select among these operators:
