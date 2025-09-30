@@ -1,3 +1,9 @@
+### 6.4.2 (2025-09-30)
+#### Improved 
+- Optimized memory performance on iOS
+#### Fixed
+- An issue with surveys new event property operators behavior.
+
 ### 6.4.1 (2025-09-15)
 #### Fixed
 - An issue on iOS preventing listeners from being added at SDK initialization.
