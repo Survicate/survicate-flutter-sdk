@@ -1,3 +1,12 @@
+### 6.4.3 (2025-10-28)
+#### Updated
+- XCFramework is now signed with a distribution certificate.
+#### Improved
+- Optimized text component behavior when focused on iOS.
+#### Fixed
+- An issue that prevented the screen delay trigger from firing when enterScreen() was called too soon after SDK initialization.
+- An issue on iOS with screen delay trigger not being scheduled upon enterScreen() call.
+
 ### 6.4.2 (2025-09-30)
 #### Improved 
 - Optimized memory performance on iOS
