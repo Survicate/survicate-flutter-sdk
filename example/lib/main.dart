@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    SurvicateSdk.setWorkspaceKey("7fa89158babd1961d1082aa93728d431");
     SurvicateSdk.initializeSdk();
     SurvicateSdk.addSurvicateEventListener(listener);
   }

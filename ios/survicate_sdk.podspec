@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Survicate' => 'hello@survicate.com' }
   s.source           = { :path => '.' }
-  s.source_files     = 'Classes/**/*'
+  s.source_files     = 'survicate_sdk/Sources/survicate_sdk/**/*'
   s.platform         = :ios, '14.0'
   
   s.dependency 'Flutter'

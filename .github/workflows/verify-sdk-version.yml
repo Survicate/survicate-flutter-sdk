@@ -1,0 +1,46 @@
+name: Verify Survicate iOS SDK Version Consistency
+
+on:
+  pull_request:
+
+jobs:
+  verify-sdk-version:
+    name: Check Survicate iOS SDK Version Consistency
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract Survicate iOS SDK version from podspec
+        id: podspec-version
+        run: |
+          VERSION=$(grep "s.dependency 'Survicate'" ios/survicate_sdk.podspec | sed -n "s/.*'Survicate',\s*'\([^']*\)'.*/\1/p" | tr -d '[:space:]')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Podspec Survicate iOS SDK version: $VERSION"
+
+      - name: Extract Survicate iOS SDK version from Package.swift
+        id: package-version
+        run: |
+          VERSION=$(grep "survicate-ios-sdk.git" ios/survicate_sdk/Package.swift | sed -n 's/.*exact: "\([^"]*\)".*/\1/p' | tr -d '[:space:]')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Package.swift Survicate iOS SDK version: $VERSION"
+
+      - name: Compare versions
+        run: |
+          PODSPEC_VERSION="${{ steps.podspec-version.outputs.version }}"
+          PACKAGE_VERSION="${{ steps.package-version.outputs.version }}"
+
+          echo "Podspec Survicate iOS SDK version: $PODSPEC_VERSION"
+          echo "Package.swift Survicate iOS SDK version: $PACKAGE_VERSION"
+
+          if [ "$PODSPEC_VERSION" != "$PACKAGE_VERSION" ]; then
+            echo "ERROR: Survicate iOS SDK versions do not match!"
+            echo "  - ios/survicate_sdk.podspec: $PODSPEC_VERSION"
+            echo "  - ios/survicate_sdk/Package.swift: $PACKAGE_VERSION"
+            echo ""
+            echo "Please update both files to use the same Survicate iOS SDK version."
+            exit 1
+          else
+            echo "SUCCESS: Survicate iOS SDK versions match ($PODSPEC_VERSION)"
+          fi
