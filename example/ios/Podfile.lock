@@ -1,28 +1,15 @@
 PODS:
   - Flutter (1.0.0)
-  - Survicate (6.4.2)
-  - survicate_sdk (6.4.2):
-    - Flutter
-    - Survicate (= 6.4.2)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - survicate_sdk (from `.symlinks/plugins/survicate_sdk/ios`)
-
-SPEC REPOS:
-  trunk:
-    - Survicate
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  survicate_sdk:
-    :path: ".symlinks/plugins/survicate_sdk/ios"
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  Survicate: 11d54f2132c5579c6e169f8cb4d1408ea3748b06
-  survicate_sdk: 2b3249ed31e15cb5fc6c20dbb15034977d988bab
 
 PODFILE CHECKSUM: 1959d098c91d8a792531a723c4a9d7e9f6a01e38
 
