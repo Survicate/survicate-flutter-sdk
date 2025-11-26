@@ -16,7 +16,7 @@ class SurveyDisplayedEvent {
 
   SurveyDisplayedEvent({required this.surveyId});
 
-  static from(Map<String, dynamic> map) {
+  static SurveyDisplayedEvent from(Map<String, dynamic> map) {
     return SurveyDisplayedEvent(surveyId: map[_surveyId] as String);
   }
 }
@@ -43,7 +43,7 @@ class QuestionAnsweredEvent {
     required this.panelAnswerUrl,
   });
 
-  static from(Map<String, dynamic> map) {
+  static QuestionAnsweredEvent from(Map<String, dynamic> map) {
     return QuestionAnsweredEvent(
       surveyId: map[_surveyId] as String,
       surveyName: map[_surveyName] as String,
@@ -70,7 +70,7 @@ class SurvicateAnswer {
     required this.value,
   });
 
-  static from(Map<String, dynamic> map) {
+  static SurvicateAnswer from(Map<String, dynamic> map) {
     return SurvicateAnswer(
       type: map[_answerType] as String?,
       id: map[_answerId] as int?,
@@ -86,7 +86,7 @@ class SurveyClosedEvent {
 
   SurveyClosedEvent({required this.surveyId});
 
-  static from(Map<String, dynamic> map) {
+  static SurveyClosedEvent from(Map<String, dynamic> map) {
     return SurveyClosedEvent(surveyId: map[_surveyId] as String);
   }
 }
@@ -97,7 +97,7 @@ class SurveyCompletedEvent {
 
   SurveyCompletedEvent({required this.surveyId});
 
-  static from(Map<String, dynamic> map) {
+  static SurveyCompletedEvent from(Map<String, dynamic> map) {
     return SurveyCompletedEvent(surveyId: map[_surveyId] as String);
   }
 }

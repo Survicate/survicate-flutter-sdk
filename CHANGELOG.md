@@ -1,3 +1,10 @@
+### 6.4.4 (2025-11-26)
+#### Updated
+- Added Swift Package Manager support on iOS
+#### Improved
+- Enhanced performance of checkbox selection in multiple answer question type in iOS.
+- Updated data storage handling for better iOS compatibility
+
 ### 6.4.3 (2025-10-28)
 #### Updated
 - XCFramework is now signed with a distribution certificate.
