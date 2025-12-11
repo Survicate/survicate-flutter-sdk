@@ -1,3 +1,9 @@
+### 6.4.5 (2025-12-11)
+#### Improved
+- The Shape Rating horizontal layout on very narrow Android devices, ensuring all five items fit on the screen.
+#### Fixed
+- An issue on iOS with thread safety causing crashes during concurrent SDK operations.
+
 ### 6.4.4 (2025-11-26)
 #### Updated
 - Added Swift Package Manager support on iOS
