@@ -1,3 +1,7 @@
+### 6.4.6 (2026-01-07)
+#### Fixed
+- An issue on iOS with thread safety causing crashes when accessing deallocated objects.
+
 ### 6.4.5 (2025-12-11)
 #### Improved
 - The Shape Rating horizontal layout on very narrow Android devices, ensuring all five items fit on the screen.
