@@ -1,14 +1,14 @@
-## 7.0.0 (2026-01-21)
-### New
+### 7.0.0 (2026-01-21)
+#### New
 - New operators available in Audience targeting for all attribute types:
   - "value exists"
   - "value doesn't exist"
 - Added workspace key validation during SDK initialization
-### Updated
+#### Updated
 - Bumping up reference of Android to 7.0.0
 - Bumping up reference of iOS to 7.0.0
 - Removed Moshi dependency on Android
-### Fixed
+#### Fixed
 - An issue on iOS with setLocale method requiring strict case formatting. Now it accepts locale codes in any case (e.g., zh-tw, zh-TW)
 - An issue on iOS with UI glitch in survey question transition
 - An issue on iOS with surveys not being shown again after being dismissed by native components
