@@ -7,6 +7,8 @@ on:
 
 jobs:
   verify-sdk-version:
+    permissions:
+      contents: read
     uses: ./.github/workflows/verify-sdk-version.yml
     with:
       tag: ${{ github.ref_name }}
