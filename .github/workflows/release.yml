@@ -1,0 +1,21 @@
+name: Release Survicate Flutter SDK to pub.dev
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  verify-sdk-version:
+    permissions:
+      contents: read
+    uses: ./.github/workflows/verify-sdk-version.yml
+    with:
+      tag: ${{ github.ref_name }}
+
+  publish:
+    name: Publish to pub.dev
+    needs: verify-sdk-version
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1

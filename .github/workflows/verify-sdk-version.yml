@@ -1,11 +1,20 @@
-name: Verify Survicate iOS SDK Version Consistency
+name: Verify SDK Version Consistency
+
+permissions:
+  contents: read
 
 on:
   pull_request:
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Git tag to verify against pubspec.yaml (e.g. v1.0.0)'
+        required: false
+        type: string
 
 jobs:
   verify-sdk-version:
-    name: Check Survicate iOS SDK Version Consistency
+    name: Check SDK Version Consistency
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +35,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Package.swift Survicate iOS SDK version: $VERSION"
 
-      - name: Compare versions
+      - name: Compare iOS SDK versions
         run: |
           PODSPEC_VERSION="${{ steps.podspec-version.outputs.version }}"
           PACKAGE_VERSION="${{ steps.package-version.outputs.version }}"
@@ -43,4 +52,21 @@ jobs:
             exit 1
           else
             echo "SUCCESS: Survicate iOS SDK versions match ($PODSPEC_VERSION)"
+          fi
+
+      - name: Compare tag version with pubspec.yaml
+        if: inputs.tag != ''
+        run: |
+          TAG_VERSION="${{ inputs.tag }}"
+          TAG_VERSION="${TAG_VERSION#v}"
+          PUBSPEC_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | tr -d '[:space:]')
+
+          echo "Tag version: $TAG_VERSION"
+          echo "pubspec.yaml version: $PUBSPEC_VERSION"
+
+          if [ "$TAG_VERSION" != "$PUBSPEC_VERSION" ]; then
+            echo "ERROR: Tag version ($TAG_VERSION) does not match pubspec.yaml version ($PUBSPEC_VERSION)"
+            exit 1
+          else
+            echo "SUCCESS: Versions match ($TAG_VERSION)"
           fi
