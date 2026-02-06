@@ -6,6 +6,11 @@ permissions:
 on:
   pull_request:
   workflow_call:
+    inputs:
+      tag:
+        description: 'Git tag to verify against pubspec.yaml (e.g. v1.0.0)'
+        required: false
+        type: string
 
 jobs:
   verify-sdk-version:
@@ -50,9 +55,10 @@ jobs:
           fi
 
       - name: Compare tag version with pubspec.yaml
-        if: github.ref_type == 'tag'
+        if: inputs.tag != ''
         run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          TAG_VERSION="${{ inputs.tag }}"
+          TAG_VERSION="${TAG_VERSION#v}"
           PUBSPEC_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | tr -d '[:space:]')
 
           echo "Tag version: $TAG_VERSION"

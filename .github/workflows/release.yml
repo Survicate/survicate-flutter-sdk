@@ -8,6 +8,8 @@ on:
 jobs:
   verify-sdk-version:
     uses: ./.github/workflows/verify-sdk-version.yml
+    with:
+      tag: ${{ github.ref_name }}
 
   publish:
     name: Publish to pub.dev
