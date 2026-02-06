@@ -1,5 +1,8 @@
 name: Verify SDK Version Consistency
 
+permissions:
+  contents: read
+
 on:
   pull_request:
   workflow_call:
