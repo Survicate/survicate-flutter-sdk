@@ -1,4 +1,4 @@
-### 7.1.0 (2026-02-17)
+### 7.1.0 (2026-02-18)
 #### New
 - You can now adjust the survey theme based on your app mode. The supported theme modes are:
   - auto (default)
@@ -7,8 +7,8 @@
 
   The additional theme version should be added in the panel first.
 #### Updated
-- Bumping up reference of Android to 7.1.0
-- Bumping up reference of iOS to 7.1.0
+- Bumping up reference of Android to 7.1.1
+- Bumping up reference of iOS to 7.1.1
 #### Fixed
 - An issue on Android with `Powered by Survicate` logo scaling.
 - An issue on iOS with scrollview height calculations in Matrix question type.
