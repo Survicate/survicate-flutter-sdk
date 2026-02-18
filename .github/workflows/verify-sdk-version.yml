@@ -58,7 +58,6 @@ jobs:
         if: inputs.tag != ''
         run: |
           TAG_VERSION="${{ inputs.tag }}"
-          TAG_VERSION="${TAG_VERSION#v}"
           PUBSPEC_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | tr -d '[:space:]')
 
           echo "Tag version: $TAG_VERSION"
