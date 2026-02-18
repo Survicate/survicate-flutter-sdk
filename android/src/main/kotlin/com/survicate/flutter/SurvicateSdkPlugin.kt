@@ -8,6 +8,7 @@ import com.survicate.surveys.SurveyCompletedEvent
 import com.survicate.surveys.SurveyDisplayedEvent
 import com.survicate.surveys.Survicate
 import com.survicate.surveys.SurvicateEventListener
+import com.survicate.surveys.ThemeMode
 import com.survicate.surveys.traits.UserTrait
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -102,6 +103,14 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
             SET_LOCALE -> {
                 Survicate.setLocale(call.arguments!! as String)
             }
+            SET_THEME_MODE -> {
+                val themeMode = when (call.arguments!! as String) {
+                    "light" -> ThemeMode.LIGHT
+                    "dark" -> ThemeMode.DARK
+                    else -> ThemeMode.AUTO
+                }
+                Survicate.setThemeMode(themeMode)
+            }
             else -> throw NotImplementedError("Method ${call.method} is not implemented")
         }
     }
@@ -142,6 +151,7 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
         const val SET_USER_TRAITS = "setUserTraits"
         const val RESET = "reset"
         const val SET_LOCALE = "setLocale"
+        const val SET_THEME_MODE = "setThemeMode"
 
         const val ON_SURVEY_DISPLAYED = "onSurveyDisplayed"
         const val ON_QUESTION_ANSWERED = "onQuestionAnswered"

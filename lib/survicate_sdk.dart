@@ -1,5 +1,6 @@
 import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 import 'package:survicate_sdk/survicate_sdk_integrations.dart';
+import 'package:survicate_sdk/theme_mode.dart';
 import 'package:survicate_sdk/user_trait.dart';
 
 import 'survicate_sdk_platform_interface.dart';
@@ -7,6 +8,7 @@ import 'survicate_sdk_platform_interface.dart';
 export 'survicate_sdk_event_listener.dart';
 export 'survicate_sdk_event_models.dart';
 export 'survicate_sdk_integrations.dart';
+export 'theme_mode.dart';
 
 class SurvicateSdk {
   // Prevent instantiation of the class
@@ -161,6 +163,15 @@ class SurvicateSdk {
   static void setLocale(String languageTag) async {
     try {
       await SurvicateSdkPlatform.instance.setLocale(languageTag);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /// Sets the theme mode for survey appearance: [ThemeMode.auto] (default), [ThemeMode.light] or [ThemeMode.dark].
+  static void setThemeMode(ThemeMode themeMode) async {
+    try {
+      await SurvicateSdkPlatform.instance.setThemeMode(themeMode.name);
     } catch (e) {
       // ignore
     }

@@ -102,4 +102,9 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   Future<void> setLocale(String locale) async {
     await methodChannel.invokeMethod('setLocale', locale);
   }
+
+  @override
+  Future<void> setThemeMode(String themeMode) async {
+    await methodChannel.invokeMethod('setThemeMode', themeMode);
+  }
 }
