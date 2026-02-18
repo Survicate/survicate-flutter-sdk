@@ -67,4 +67,8 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
   Future<void> setLocale(String locale) {
     throw UnimplementedError('setLocale() has not been implemented.');
   }
+
+  Future<void> setThemeMode(String themeMode) {
+    throw UnimplementedError('setThemeMode() has not been implemented.');
+  }
 }

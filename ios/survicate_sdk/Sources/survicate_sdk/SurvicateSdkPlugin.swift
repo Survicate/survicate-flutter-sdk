@@ -13,6 +13,7 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case setUserTrait = "setUserTrait"
         case reset = "reset"
         case setLocale = "setLocale"
+        case setThemeMode = "setThemeMode"
     }
     
     enum Event: String {
@@ -98,6 +99,20 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case .setLocale:
             if let locale = call.arguments as? String {
                 SurvicateSdk.shared.setLocale(locale)
+            }
+            result(nil)
+        case .setThemeMode:
+            if let mode = call.arguments as? String {
+                var themeMode: Survicate.ThemeMode = .auto
+                switch mode {
+                case "light":
+                    themeMode = .light
+                case "dark":
+                    themeMode = .dark
+                default:
+                    themeMode = .auto
+                }
+                SurvicateSdk.shared.setThemeMode(themeMode)
             }
             result(nil)
         }
