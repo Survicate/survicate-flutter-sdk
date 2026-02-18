@@ -69,6 +69,7 @@ class _MyAppState extends State<MyApp> {
 ```dart
 import 'package:survicate_sdk/survicate_sdk.dart';
 import 'package:survicate_sdk/user_trait.dart';
+import 'package:survicate_sdk/theme_mode.dart' as survicate;
 
 // Set workspace key in code
 SurvicateSdk.setWorkspaceKey("WORKSPACE_KEY");
@@ -109,6 +110,9 @@ SurvicateSdk.setUserTraits(traits);
 
 // Set locale
 SurvicateSdk.setLocale('en-US');
+
+// Set theme mode
+SurvicateSdk.setThemeMode(survicate.ThemeMode.auto); // ThemeMode.auto, ThemeMode.light, ThemeMode.dark
 
 // Add an event listener
 SurvicateEventListener listener = SurvicateEventListener(
