@@ -1,3 +1,4 @@
+import CoreText
 import Flutter
 import UIKit
 import Survicate
@@ -14,6 +15,8 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         case reset = "reset"
         case setLocale = "setLocale"
         case setThemeMode = "setThemeMode"
+        case setFonts = "setFonts"
+        case setResponseAttributes = "setResponseAttributes"
     }
     
     enum Event: String {
@@ -40,12 +43,14 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
     
     private var eventChannel: FlutterEventChannel?
     private var eventSink: FlutterEventSink?
-    
+    private var registrar: FlutterPluginRegistrar?
+
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "survicate_sdk", binaryMessenger: registrar.messenger())
         let instance = SurvicateSdkPlugin()
+        instance.registrar = registrar
         registrar.addMethodCallDelegate(instance, channel: channel)
-        
+
         let eventChannel = FlutterEventChannel(name: "survicate_sdk_events", binaryMessenger: registrar.messenger())
         eventChannel.setStreamHandler(instance)
     }
@@ -115,9 +120,34 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
                 SurvicateSdk.shared.setThemeMode(themeMode)
             }
             result(nil)
+        case .setFonts:
+            if let args = call.arguments as? [String: String] {
+                SurvicateSdk.shared.setFonts(fontSystem(from: args))
+            }
+            result(nil)
+        case .setResponseAttributes:
+            if let attrs = call.arguments as? [[String: String?]] {
+                SurvicateSdk.shared.setResponseAttributes(attrs.compactMap(responseAttribute(from:)))
+            }
+            result(nil)
         }
     }
-    
+
+    private func fontSystem(from args: [String: String]) -> SurvicateFontSystem {
+        SurvicateFontSystem(
+            regular: postScriptName(for: args["regular"] ?? ""),
+            regularItalic: postScriptName(for: args["regularItalic"] ?? ""),
+            bold: postScriptName(for: args["bold"] ?? ""),
+            boldItalic: postScriptName(for: args["boldItalic"] ?? "")
+        )
+    }
+
+    private func responseAttribute(from dict: [String: String?]) -> ResponseAttribute? {
+        guard let name = dict["name"] as? String,
+              let value = dict["value"] as? String else { return nil }
+        return ResponseAttribute(name: name, value: value, provider: dict["provider"] as? String)
+    }
+
     public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         self.eventSink = events
         SurvicateSdk.shared.addListener(self)
@@ -128,6 +158,31 @@ public class SurvicateSdkPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
         self.eventSink = nil
         SurvicateSdk.shared.removeListener(self)
         return nil
+    }
+
+    private func postScriptName(for assetPath: String) -> String {
+        // Resolve the Flutter asset path to a file URL using the registrar's lookup key
+        guard let registrar,
+              let url = Bundle.main.url(
+                forResource: registrar.lookupKey(forAsset: assetPath),
+                withExtension: nil
+              ) else {
+            return ""
+        }
+
+        // Extract the PostScript name from the font descriptor
+        guard let descriptors = CTFontManagerCreateFontDescriptorsFromURL(url as CFURL) as? [CTFontDescriptor],
+              let descriptor = descriptors.first,
+              let name = CTFontDescriptorCopyAttribute(descriptor, kCTFontNameAttribute) as? String else {
+            return ""
+        }
+
+        // Register the font if it is not already available in the process.
+        if UIFont(name: name, size: 12) == nil {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+
+        return name
     }
 }
 

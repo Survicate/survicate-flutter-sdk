@@ -69,64 +69,60 @@ class _MyAppState extends State<MyApp> {
 ```dart
 import 'package:survicate_sdk/survicate_sdk.dart';
 import 'package:survicate_sdk/user_trait.dart';
-import 'package:survicate_sdk/theme_mode.dart';
 
-// Set workspace key in code
-SurvicateSdk.setWorkspaceKey("WORKSPACE_KEY");
-
-// Initialize an SDK
+// Initialization
+SurvicateSdk.setWorkspaceKey('WORKSPACE_KEY');
 SurvicateSdk.initializeSdk();
 
+// Events
+SurvicateSdk.invokeEvent('eventName');
+SurvicateSdk.invokeEvent('eventName', eventProperties: {'property1': 'value1', 'property2': 'value2'});
 
-// Invoke an event
-SurvicateSdk.invokeEvent("eventName");
+// Screens
+SurvicateSdk.enterScreen('screenName');
+SurvicateSdk.leaveScreen('screenName');
 
-// Invoke an event with properties
-Map<String, String> properties = {
-  'property1': 'value1',
-  'property2': 'value2',
-};
-SurvicateSdk.invokeEvent('Event', properties);
+// User traits
+SurvicateSdk.setUserTrait(UserTrait('user_id', 'id'));
+SurvicateSdk.setUserTrait(UserTrait('name', 'John'));
+SurvicateSdk.setUserTrait(UserTrait('age', 25));
+SurvicateSdk.setUserTrait(UserTrait('isPremium', true));
+SurvicateSdk.setUserTrait(UserTrait('lastLogin', DateTime.now()));
 
-// Enter a screen
-SurvicateSdk.enterScreen("screenName");
-
-// Leave a screen
-SurvicateSdk.leaveScreen("screenName");
-
-// Set a single user trait
-UserTrait userIdTrait = UserTrait('user_id', 'id');
-SurvicateSdk.setUserTrait(userIdTrait);
-
-// Set multiple user traits
-List<UserTrait> traits = [
-  UserTrait('name', 'John'),
-  UserTrait('age', 25),
-  UserTrait('isPremium', true),
-  UserTrait('lastLogin', DateTime.now()),
-  UserTrait('timeOfPurchase', DateTime.now()),
-];
-SurvicateSdk.setUserTraits(traits);
-
-// Set locale
+// Locale
 SurvicateSdk.setLocale('en-US');
 
-// Set theme mode
+// Theme
 SurvicateSdk.setThemeMode(ThemeMode.auto); // ThemeMode.auto, ThemeMode.light, ThemeMode.dark
 
-// Add an event listener
+// Custom fonts
+SurvicateSdk.setFonts(SurvicateFontSystem(
+  regular: 'fonts/MyFont-Regular.ttf',
+  regularItalic: 'fonts/MyFont-RegularItalic.ttf',
+  bold: 'fonts/MyFont-Bold.ttf',
+  boldItalic: 'fonts/MyFont-BoldItalic.ttf',
+));
+
+// Response attributes
+SurvicateSdk.setResponseAttribute(ResponseAttribute.string('plan', 'premium'));
+SurvicateSdk.setResponseAttributes([
+  ResponseAttribute.string('plan', 'premium', provider: 'crm'),
+  ResponseAttribute.bool('isTrialExpired', false),
+  ResponseAttribute.num('seats', 5),
+  ResponseAttribute.dateTime('renewalDate', DateTime.now()),
+]);
+
+// Event listeners
 SurvicateEventListener listener = SurvicateEventListener(
-  onSurveyDisplayed: (SurveyDisplayedEvent event) { },  // onSurveyDisplayed
-  onQuestionAnswered: (QuestionAnsweredEvent event) { }, // onQuestionAnswered
-  onSurveyClosed: (SurveyClosedEvent event) { },  // onSurveyClosed
-  onSurveyCompleted: (SurveyCompletedEvent event) { }, // onSurveyCompleted
+  onSurveyDisplayed: (SurveyDisplayedEvent event) {},
+  onQuestionAnswered: (QuestionAnsweredEvent event) {},
+  onSurveyClosed: (SurveyClosedEvent event) {},
+  onSurveyCompleted: (SurveyCompletedEvent event) {},
 );
 SurvicateSdk.addSurvicateEventListener(listener);
-
-// Remove an event listener
 SurvicateSdk.removeSurvicateEventListener(listener);
 
-// Reset the SDK
+// Reset
 SurvicateSdk.reset();
 ```
 

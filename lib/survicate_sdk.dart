@@ -1,3 +1,5 @@
+import 'package:survicate_sdk/response_attribute.dart';
+import 'package:survicate_sdk/survicate_font_system.dart';
 import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 import 'package:survicate_sdk/survicate_sdk_integrations.dart';
 import 'package:survicate_sdk/theme_mode.dart';
@@ -5,6 +7,8 @@ import 'package:survicate_sdk/user_trait.dart';
 
 import 'survicate_sdk_platform_interface.dart';
 
+export 'response_attribute.dart';
+export 'survicate_font_system.dart';
 export 'survicate_sdk_event_listener.dart';
 export 'survicate_sdk_event_models.dart';
 export 'survicate_sdk_integrations.dart';
@@ -172,6 +176,44 @@ class SurvicateSdk {
   static void setThemeMode(ThemeMode themeMode) async {
     try {
       await SurvicateSdkPlatform.instance.setThemeMode(themeMode.name);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /// Sets custom fonts for use in surveys.
+  ///
+  /// [fontSystem] A font configuration to apply.
+  static void setFonts(SurvicateFontSystem fontSystem) async {
+    try {
+      await SurvicateSdkPlatform.instance.setFonts(fontSystem);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /// Shorthand for [setResponseAttributes].
+  static void setResponseAttribute(ResponseAttribute attribute) {
+    setResponseAttributes([attribute]);
+  }
+
+  /// Sets [ResponseAttribute]s that will be attached to survey responses.
+  ///
+  /// These can be arbitrary key-value pairs. Unlike [UserTrait]s, response
+  /// attributes are session-scoped and are cleared upon a new app session.
+  /// Response attributes are sent to the system along with the user's answers
+  /// to survey questions.
+  ///
+  /// To change a [ResponseAttribute], provide the same key with a different value.
+  ///
+  /// See also:
+  ///  * [setResponseAttribute], a shorthand for setting a single attribute.
+  static void setResponseAttributes(List<ResponseAttribute> attributes) async {
+    try {
+      final mapped = attributes
+          .map((a) => {'name': a.name, 'value': a.value, 'provider': a.provider})
+          .toList();
+      await SurvicateSdkPlatform.instance.setResponseAttributes(mapped);
     } catch (e) {
       // ignore
     }

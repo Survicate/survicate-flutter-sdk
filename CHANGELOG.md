@@ -1,3 +1,11 @@
+### 7.2.0 (2026-03-03)
+#### New
+- Response attributes can now be attached to survey responses via `Survicate.setResponseAttributes` method. Use `ResponseAttribute` to pass key-value pairs of type String, Number, Boolean, or DateTime alongside response data.
+- SDK fonts are customizable using `Survicate.setFonts`, allowing surveys to match your app's typography.
+#### Updated
+- Bumping up reference of Android to 7.2.0
+- Bumping up reference of iOS to 7.2.0
+
 ### 7.1.0 (2026-02-18)
 #### New
 - You can now adjust the survey theme based on your app mode. The supported theme modes are:
