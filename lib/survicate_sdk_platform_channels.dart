@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 import 'package:survicate_sdk/survicate_sdk_event_models.dart';
 
+import 'survicate_font_system.dart';
 import 'survicate_sdk_platform_interface.dart';
 
 /// An implementation of [SurvicateSdkPlatform] that uses method/event channels.
@@ -106,5 +107,15 @@ class SurvicateSdkChannels extends SurvicateSdkPlatform {
   @override
   Future<void> setThemeMode(String themeMode) async {
     await methodChannel.invokeMethod('setThemeMode', themeMode);
+  }
+
+  @override
+  Future<void> setFonts(SurvicateFontSystem fontSystem) async {
+    await methodChannel.invokeMethod('setFonts', fontSystem.toMap());
+  }
+
+  @override
+  Future<void> setResponseAttributes(List<Map<String, String?>> attributes) async {
+    await methodChannel.invokeMethod('setResponseAttributes', attributes);
   }
 }

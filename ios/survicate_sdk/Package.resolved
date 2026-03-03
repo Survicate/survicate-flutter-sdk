@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Survicate/survicate-ios-sdk.git",
       "state" : {
-        "revision" : "ae6206a0c3ca49d951e3e8ab8ff33fc662ea8a9e",
-        "version" : "7.1.1"
+        "revision" : "1d971b741eea3e8a7c4a1a3f467c4b6bc3a3feda",
+        "version" : "7.2.0"
       }
     }
   ],

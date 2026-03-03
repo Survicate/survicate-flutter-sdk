@@ -1,6 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:survicate_sdk/survicate_sdk_event_listener.dart';
 
+import 'survicate_font_system.dart';
 import 'survicate_sdk_platform_channels.dart';
 
 abstract class SurvicateSdkPlatform extends PlatformInterface {
@@ -70,5 +71,13 @@ abstract class SurvicateSdkPlatform extends PlatformInterface {
 
   Future<void> setThemeMode(String themeMode) {
     throw UnimplementedError('setThemeMode() has not been implemented.');
+  }
+
+  Future<void> setFonts(SurvicateFontSystem fontSystem) {
+    throw UnimplementedError('setFonts() has not been implemented.');
+  }
+
+  Future<void> setResponseAttributes(List<Map<String, String?>> attributes) {
+    throw UnimplementedError('setResponseAttributes() has not been implemented.');
   }
 }

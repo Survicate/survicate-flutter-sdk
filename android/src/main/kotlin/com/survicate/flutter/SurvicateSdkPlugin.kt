@@ -6,8 +6,11 @@ import com.survicate.surveys.QuestionAnsweredEvent
 import com.survicate.surveys.SurveyClosedEvent
 import com.survicate.surveys.SurveyCompletedEvent
 import com.survicate.surveys.SurveyDisplayedEvent
+import com.survicate.surveys.FontSource
+import com.survicate.surveys.ResponseAttribute
 import com.survicate.surveys.Survicate
 import com.survicate.surveys.SurvicateEventListener
+import com.survicate.surveys.SurvicateFontSystem
 import com.survicate.surveys.ThemeMode
 import com.survicate.surveys.traits.UserTrait
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -111,6 +114,29 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
                 }
                 Survicate.setThemeMode(themeMode)
             }
+            SET_FONTS -> {
+                @Suppress("UNCHECKED_CAST")
+                val args = call.arguments!! as Map<String, String>
+                val fontSystem = SurvicateFontSystem(
+                    regular = FontSource.AssetPath("flutter_assets/${args["regular"]!!}"),
+                    regularItalic = FontSource.AssetPath("flutter_assets/${args["regularItalic"]!!}"),
+                    bold = FontSource.AssetPath("flutter_assets/${args["bold"]!!}"),
+                    boldItalic = FontSource.AssetPath("flutter_assets/${args["boldItalic"]!!}")
+                )
+                Survicate.setFonts(fontSystem)
+            }
+            SET_RESPONSE_ATTRIBUTES -> {
+                @Suppress("UNCHECKED_CAST")
+                val attrs = call.arguments as List<Map<String, String?>>
+                val list = attrs.map {
+                    ResponseAttribute(
+                        it["name"]!!,
+                        it["value"]!!,
+                        it["provider"]
+                    )
+                }
+                Survicate.setResponseAttributes(list)
+            }
             else -> throw NotImplementedError("Method ${call.method} is not implemented")
         }
     }
@@ -152,6 +178,8 @@ class SurvicateSdkPlugin : FlutterPlugin, MethodCallHandler, StreamHandler {
         const val RESET = "reset"
         const val SET_LOCALE = "setLocale"
         const val SET_THEME_MODE = "setThemeMode"
+        const val SET_FONTS = "setFonts"
+        const val SET_RESPONSE_ATTRIBUTES = "setResponseAttributes"
 
         const val ON_SURVEY_DISPLAYED = "onSurveyDisplayed"
         const val ON_QUESTION_ANSWERED = "onQuestionAnswered"
