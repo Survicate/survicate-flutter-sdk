@@ -1,3 +1,18 @@
+### 7.3.0 (2026-03-27)
+#### New
+- You can allow respondents to select their preferred survey language. Make sure this option is enabled in the panel and that all required translations are added.
+#### Updated
+- Bumping up reference of Android to 7.3.0
+- Bumping up reference of iOS to 7.3.0
+- The SDK now requires Kotlin 2.0+ and compileSdk 35 or higher on Android.
+- Kotlin to 2.1.21
+- Kotlinx Coroutines Android to 1.10.2
+- Kotlinx Serialization JSON to 1.8.1
+- AndroidX Lifecycle Process to 2.9.4
+- AndroidX RecyclerView to 1.4.0
+#### Fixed
+- Refined internal persistence architecture to improve thread safety on iOS.
+
 ### 7.2.0 (2026-03-03)
 #### New
 - Response attributes can now be attached to survey responses via `Survicate.setResponseAttributes` method. Use `ResponseAttribute` to pass key-value pairs of type String, Number, Boolean, or DateTime alongside response data.
