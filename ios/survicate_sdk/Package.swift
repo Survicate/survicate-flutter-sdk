@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "survicate-sdk", targets: ["survicate_sdk"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Survicate/survicate-ios-sdk.git", exact: "7.3.0")
+        .package(url: "https://github.com/Survicate/survicate-ios-sdk.git", exact: "8.0.0")
     ],
     targets: [
         .target(

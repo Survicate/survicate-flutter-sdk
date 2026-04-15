@@ -1,3 +1,14 @@
+### 8.0.0 (2026-04-15)
+#### New
+- Backend targeting is now available for beta testing. When enabled for your workspace, survey targeting is evaluated server-side so the same respondent won't be targeted twice across different channels (e.g. Web, Mobile) or devices.
+#### Improved
+- Surveys are now displayed above app navigation and system alerts on iOS.
+#### Updated
+- Bumping up reference of Android to 8.0.0
+- Bumping up reference of iOS to 8.0.0
+#### Fixed
+- An issue where Bokmål (nb) and Nynorsk (nn) locale variants were not matched to the Norwegian translation.
+
 ### 7.3.0 (2026-03-27)
 #### New
 - You can allow respondents to select their preferred survey language. Make sure this option is enabled in the panel and that all required translations are added.
