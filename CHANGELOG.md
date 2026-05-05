@@ -1,3 +1,9 @@
+### 8.0.1 (2026-05-05)
+#### Updated
+- Bumping up reference of iOS to 8.0.1
+#### Fixed
+- A rare crash on iOS that could occur when the SDK evaluated survey display conditions while user traits were being updated at the same time.
+
 ### 8.0.0 (2026-04-15)
 #### New
 - Backend targeting is now available for beta testing. When enabled for your workspace, survey targeting is evaluated server-side so the same respondent won't be targeted twice across different channels (e.g. Web, Mobile) or devices.
