@@ -1,3 +1,12 @@
+### 8.0.2 (2026-05-13)
+#### Updated
+- Bumping up reference of Android to 8.0.1
+- Bumping up reference of iOS to 8.0.2
+#### Fixed
+- An issue on iOS where surveys triggered by delayed events could fail to display.
+- Answer order is now preserved on Android across device configuration changes when "Randomize answers" is enabled.
+- Accessibility focus of Smiley scale icons on Android versions prior to 8.0 (API < 26).
+
 ### 8.0.1 (2026-05-05)
 #### Updated
 - Bumping up reference of iOS to 8.0.1
