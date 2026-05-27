@@ -5,8 +5,7 @@
 - Accessibility in the survey progress bar.
 #### Updated
 - Bumping up reference of Android to 8.1.0
-- Bumping up reference of iOS to 8.1.0
-
+- Bumping up reference of iOS to 8.1.1
 ### 8.0.2 (2026-05-13)
 #### Updated
 - Bumping up reference of Android to 8.0.1
