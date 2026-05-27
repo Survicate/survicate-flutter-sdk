@@ -1,3 +1,11 @@
+### 8.1.0 (2026-05-27)
+#### New
+- New scale styles are added in the smiley scale question type - filled and outlined - with an option to select a custom color for them. The default scale style is emojis as before.
+#### Improved
+- Accessibility in the survey progress bar.
+#### Updated
+- Bumping up reference of Android to 8.1.0
+- Bumping up reference of iOS to 8.1.1
 ### 8.0.2 (2026-05-13)
 #### Updated
 - Bumping up reference of Android to 8.0.1
