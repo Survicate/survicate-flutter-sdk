@@ -1,3 +1,11 @@
+### 8.1.1 (2026-05-29)
+#### Updated
+- Bumping up reference of Android to 8.1.1
+- Bumping up reference of iOS to 8.1.2
+- Domain used for backend targeting.
+#### Fixed
+- Fixed an issue on iOS with the hint message not displaying correctly in the Text question.
+
 ### 8.1.0 (2026-05-27)
 #### New
 - New scale styles are added in the smiley scale question type - filled and outlined - with an option to select a custom color for them. The default scale style is emojis as before.
