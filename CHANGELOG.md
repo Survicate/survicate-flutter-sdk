@@ -1,3 +1,14 @@
+### 8.2.0 (2026-06-12)
+#### Improved
+- Backend targeting performance.
+#### Updated
+- Bumping up reference of Android to 8.2.0
+- Bumping up reference of iOS to 8.2.0
+#### Fixed
+- Thread safety issues on iOS in survey targeting.
+- An issue on iOS where the SDK could show as not installed in the Survicate panel.
+- A bug on Android where the layout direction was not applied after screen rotation when the device's default locale was overridden.
+
 ### 8.1.1 (2026-05-29)
 #### Updated
 - Bumping up reference of Android to 8.1.1
