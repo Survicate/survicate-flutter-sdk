@@ -1,3 +1,12 @@
+### 8.3.0 (2026-07-01)
+#### New
+- Multiple choice question type has a new answer choice - None of the above. If enabled, it's always displayed at the end of the answer list and deselects other answers.
+- Contact form question and integrations connection: You can decide whether to use data from the contact form question to identify respondents in integrations.
+#### Updated
+- Bumping up reference of Android to 8.3.0
+- Bumping up reference of iOS to 8.3.0
+- Pin answer: you can now pin any answer to its position during randomization (previously only the last answer could be pinned).
+
 ### 8.2.0 (2026-06-12)
 #### Improved
 - Backend targeting performance.
