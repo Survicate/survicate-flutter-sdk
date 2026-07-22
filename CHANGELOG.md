@@ -1,3 +1,14 @@
+### 8.3.1 (2026-07-22)
+#### Updated
+- Bumping up reference of Android to 8.3.1
+- Bumping up reference of iOS to 8.3.1
+#### Fixed
+- An issue on iOS where the randomized order of answer choices could change after a respondent switched the survey language.
+- An issue on iOS where time-based targeting could be evaluated incorrectly.
+- An issue on Android where screen readers announced an optional comment field as "required".
+- Screen reader focus on Android landing on the whole question instead of the comment field.
+- An issue on Android where the text cursor could move to the first input on the page after the survey language was changed.
+
 ### 8.3.0 (2026-07-01)
 #### New
 - Multiple choice question type has a new answer choice - None of the above. If enabled, it's always displayed at the end of the answer list and deselects other answers.
