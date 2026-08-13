@@ -1,3 +1,9 @@
+### 8.3.2 (2026-08-13)
+#### Updated
+- Bumping up reference of iOS to 8.3.2
+#### Fixed
+- An issue on iOS where in some cases locally stored survey data could be cleared on app launch after the SDK was updated.
+
 ### 8.3.1 (2026-07-22)
 #### Updated
 - Bumping up reference of Android to 8.3.1
