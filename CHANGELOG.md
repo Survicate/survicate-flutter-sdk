@@ -1,3 +1,14 @@
+## 9.0.0 (2026-10-16)
+#### New
+- File upload question type added: respondents can upload files (documents, images, audio, and video) as their answer. The accepted number of files per question and file types are configurable in the survey, but depend on the subscription plan. The plan also sets the maximum file size and storage quota. Surveys with a file upload question are not shown in earlier SDK versions.
+#### Updated
+- Bumping up reference of Android to 9.0.0
+- Bumping up reference of iOS to 9.0.0
+- AndroidX Annotation on Android to 1.11.0
+- AndroidX ConstraintLayout on Android to 2.2.2
+#### Fixed
+- Question images on Android rendering too small on high-density screens.
+
 ### 8.3.2 (2026-08-13)
 #### Updated
 - Bumping up reference of iOS to 8.3.2
