@@ -23,20 +23,32 @@ allprojects {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+
+def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0] as int
+def builtInKotlin = providers.gradleProperty('android.builtInKotlin')
+    .map { it.toBoolean() }
+    .orElse(agpMajor >= 9)
+    .get()
+def usesKotlinGradlePlugin = agpMajor < 9 || !builtInKotlin
+
+if (usesKotlinGradlePlugin) {
+    apply plugin: 'kotlin-android'
+}
 
 android {
     namespace 'com.survicate.flutter'
 
-    compileSdkVersion 34
+    compileSdkVersion 35
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = '1.8'
+    if (usesKotlinGradlePlugin) {
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
     }
 
     sourceSets {
@@ -52,7 +64,7 @@ android {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
 
-        implementation ('com.survicate:survicate-sdk:9.0.1')
+        implementation ('com.survicate:survicate-sdk:10.0.1')
     
 }
     buildTypes {

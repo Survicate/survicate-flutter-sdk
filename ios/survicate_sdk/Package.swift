@@ -6,13 +6,13 @@ import PackageDescription
 let package = Package(
     name: "survicate_sdk",
     platforms: [
-        .iOS("14.0")
+        .iOS("15.0")
     ],
     products: [
         .library(name: "survicate-sdk", targets: ["survicate_sdk"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Survicate/survicate-ios-sdk.git", exact: "9.0.1")
+        .package(url: "https://github.com/Survicate/survicate-ios-sdk.git", exact: "10.0.1")
     ],
     targets: [
         .target(
