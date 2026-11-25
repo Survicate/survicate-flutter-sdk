@@ -1,3 +1,22 @@
+## 10.0.0 (2026-11-25)
+#### New
+- Date questions can now be optional and support logic.
+- Multiple-choice questions support a selection limit: a range or an exact number.
+- Smiley scale, rating scale, and NPS questions let you choose which answer options include a comment field.
+#### Improved
+- The survey background overlay is now black at 50% opacity.
+- On Android, the submit button stays visible above the keyboard on taller screens.
+#### Updated
+- The minimum iOS deployment target is now 15.0, matching the native SDK.
+- Bumping up reference of Android to 10.0.1
+- Bumping up reference of iOS to 10.0.1
+#### Fixed
+- An issue where a survey with the Users audience was not displayed when it used a delayed event trigger.
+- An issue where a survey with a screen delay could be skipped when another survey targeted the same screen.
+- An issue on iOS where quickly tapping Submit or an auto-advancing rating twice could send the same answer twice or skip the next question.
+- Android builds now apply the Kotlin Gradle plugin only when built-in Kotlin is disabled or Android Gradle Plugin 8 or earlier is used.
+- The Android plugin now compiles against API 35 to meet the minimum compile SDK required by its dependencies.
+
 ## 9.0.0 (2026-10-16)
 #### New
 - File upload question type added: respondents can upload files (documents, images, audio, and video) as their answer. The accepted number of files per question and file types are configurable in the survey, but depend on the subscription plan. The plan also sets the maximum file size and storage quota. Surveys with a file upload question are not shown in earlier SDK versions.
